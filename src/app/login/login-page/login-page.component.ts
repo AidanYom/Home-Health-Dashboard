@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-login-page',
@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
+  @ViewChild('login') login! :ElementRef;
   constructor() { }
+
+  onClick() : void {
+      this.login.nativeElement.blur();
+      
+  }
 
   ngOnInit(): void {
   }
