@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Scope+One&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --ff-primary: 'Scope One', serif;
+    --fw-reg: 400;
+    --fw-bold: 800;
+
+    background-color: #F8F8F8;;
+}
