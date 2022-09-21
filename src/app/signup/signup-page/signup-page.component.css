@@ -22,7 +22,7 @@
     font-size: 36px;
 }
 
-.credentials-username, .credentials-password {
+.credentials-username, .credentials-password,.credentials-fname  {
     margin-bottom: 0px;
 }
 
@@ -30,12 +30,12 @@ input[type="text"] {
     font-family: var(--ff-primary);
 }
 
-.credentials-username-input:focus, .credentials-password-input:focus {
+.credentials-username-input:focus, .credentials-password-input:focus, .credentials-username-fname:focus, .credentials-username-lname:focus {
     outline: none;
     border: 2px solid #1A1A1A;
 }
 
-.credentials-username-input, .credentials-password-input {
+.credentials-username-input, .credentials-password-input, .credentials-username-fname, .credentials-username-lname {
     
     -webkit-transition: 0.05s ease;
     transition: 0.05s ease;
@@ -76,7 +76,7 @@ input[type="text"] {
     border: 2px solid #1A1A1A;
 }
 
-.credentials-username-input, .credentials-password-input {
+.credentials-username-input, .credentials-password-input, .credentials-username-lname, .credentials-username-fname {
     border: none;
     width: 200px;
     height: 30px;
@@ -130,11 +130,11 @@ input[type="text"] {
         
     }
     
-    .credentials-username, .credentials-password {
+    .credentials-username, .credentials-password, .credentials-fname {
         margin-bottom: 0px;
     }
 
-    .credentials-username-input, .credentials-password-input {
+    .credentials-username-input, .credentials-password-input, .credentials-username-fname, .credentials-username-lname {
         width: 450px;
         height: 50px;
     }
@@ -158,6 +158,7 @@ input[type="text"] {
         cursor: pointer;
         color: white;
         border-radius: 12px;
+        margin-top: 30px;
         margin-bottom: 40px;
     }
 

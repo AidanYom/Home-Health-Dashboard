@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LoginPageComponent } from './login/login-page/login-page.component';
 import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
 
-
+import { SignupPageComponent } from './signup/signup-page/signup-page.component';
 
 @NgModule({
   declarations: [],
@@ -13,4 +13,4 @@ import { AdminHomepageComponent } from './admin-homepage/admin-homepage.componen
   ]
 })
 export class AppRoutingModule { }
-export const routingComponents = [LoginPageComponent, AdminHomepageComponent]
+export const routingComponents = [LoginPageComponent, AdminHomepageComponent, SignupPageComponent]

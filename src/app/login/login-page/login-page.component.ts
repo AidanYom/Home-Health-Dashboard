@@ -33,6 +33,9 @@ export class LoginPageComponent implements OnInit {
         })
       
   }
+  createAccountClick() : void {
+    this.router.navigateByUrl('signup')
+  }
 
   ngOnInit(): void {
   }
