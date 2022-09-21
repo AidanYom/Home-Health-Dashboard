@@ -1,0 +1,16 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { LoginPageComponent } from './login/login-page/login-page.component';
+import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
+
+
+
+@NgModule({
+  declarations: [],
+  imports: [
+    CommonModule
+  ]
+})
+export class AppRoutingModule { }
+export const routingComponents = [LoginPageComponent, AdminHomepageComponent]
