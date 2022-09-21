@@ -10,12 +10,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
 
 import { RouterEvent, RouterModule, Routes } from '@angular/router';
+import { SignupPageComponent } from './signup/signup-page/signup-page.component';
 
 
 const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'admin', component: AdminHomepageComponent},
-  {path: '', component:LoginPageComponent}
+  {path: '', component:LoginPageComponent},
+  {path: 'signup', component: SignupPageComponent}
 ]
 
 @NgModule({
@@ -23,6 +25,7 @@ const routes: Routes = [
     AppComponent,
     LoginPageComponent,
     AdminHomepageComponent,
+    SignupPageComponent,
   ],
   imports: [
     BrowserModule,

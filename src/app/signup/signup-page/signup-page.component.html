@@ -1,0 +1,30 @@
+
+<div class="login">
+    
+
+    <img src="assets/img/outline-status-heart-plus@2x.png" class="login-img">
+
+    <div class="credentials">
+        <h1 class="welcome"w>Welcome!</h1>
+        <p class="credentials-fname">First Name</p>
+        <input type="text" class="credentials-username-fname" [(ngModel)] = "fname">
+        <p class="credentials-fname">Last Name</p>
+        <input type="text" class="credentials-username-lname" [(ngModel)] = "lname">
+        <p class="credentials-username">Email</p>
+        <input type="text" class="credentials-username-input" [(ngModel)] = "email">
+        <p class="credentials-password">Password</p>
+        <input type="password" class="credentials-password-input" [(ngModel)] = "password">
+    </div>
+    <div></div>
+
+    <button class="login-button" #login (click)="onClick()">
+        Sign Up
+    </button>
+    <div></div>
+    <a href="" class="login-forgot-password">Forgot Password?</a>
+
+</div>
+
+
+  
+  

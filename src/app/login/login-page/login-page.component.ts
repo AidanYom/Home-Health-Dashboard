@@ -22,7 +22,7 @@ export class LoginPageComponent implements OnInit {
       this.authService.login(this.email, this.password)
         .subscribe(data => {
           if (data.status === '400') {
-            alert("Incorrect Password")
+            alert("Incorrect Credentials")
           }
           else {
             //go to new component
