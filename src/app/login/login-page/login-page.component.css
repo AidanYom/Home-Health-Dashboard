@@ -14,7 +14,7 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-
+    margin-bottom: 10em;
 }
 
 .welcome {
@@ -41,7 +41,7 @@ input[type="text"] {
     transition: 0.05s ease;
 }
 
-.login-button {
+.login-page-buttons {
     font-family: var(--ff-primary);
     appearance: none;
     background-color: #000000;
@@ -58,13 +58,13 @@ input[type="text"] {
     margin-bottom: 20px;
 }
 
-.login-button:hover {
+.login-page-buttons:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     opacity: 0.9;
     
 }
 
-.login-button:focus {
+.login-page-buttons:focus {
     outline: none;
     border: 2px solid #1A1A1A;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
@@ -75,6 +75,17 @@ input[type="text"] {
     outline: none;
     border: 2px solid #1A1A1A;
 }
+
+.incorrect-password {
+    display: none;
+}
+.incorrect-password-hidden {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8em;
+    color: red;
+}
+
 
 .credentials-username-input, .credentials-password-input {
     border: none;
@@ -91,6 +102,21 @@ input[type="text"] {
 .login-forgot-password {
     color: black;
 
+}
+
+#create-account {
+    margin: 0;
+    margin-top: 5em;
+    width: 9em;
+    height: 2.3em;
+    
+    font-size: 1em;
+    color: white;
+    padding: 0.4em;
+    text-align: center;
+    margin-right: 1em;
+    float: right;
+    
 }
 
 
@@ -144,7 +170,7 @@ input[type="text"] {
         font-family: var(--ff-primary);
     }
 
-    .login-button {
+    .login-page-buttons {
         font-family: var(--ff-primary);
         appearance: none;
         background-color: #000000;
@@ -169,16 +195,55 @@ input[type="text"] {
       
         
     }
-
-    .login-create-account {
-        margin-top: 10px;
-        font-size: 20px;
-        color: black;
-        margin: 0 75px 0px 60px;
-        
-      
-
+    .incorrect-password {
+        display: none;
     }
+    .incorrect-password-hidden {
+        display: block;
+        margin-top: 5px;
+        font-size: 0.8em;
+        color: red;
+    }
+
+    #create-account {
+        margin: 0;
+        position: fixed;
+        right: 0;
+        bottom: 2.5em;
+        width: 180px;
+        height: 50px;
+        font-size: 20px;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        margin-right: 2.5em;
+        
+    }
+    
+    .shake {
+        animation-name: shake-animation;
+        animation-duration: 0.3s;
+    }
+
+    @keyframes shake-animation {
+        10%, 90% {
+            transform: translate3d(-1px, 0, 0);
+          }
+          
+        20%, 80% {
+            transform: translate3d(4px, 0, 0);
+          }
+        
+        30%, 50%, 70% {
+            transform: translate3d(-6px, 0, 0);
+          }
+        
+        40%, 60% {
+            transform: translate3d(6px, 0, 0);
+          }
+    }
+
+    
 
 }
 

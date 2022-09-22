@@ -13,6 +13,8 @@ export class LoginPageComponent implements OnInit {
   constructor(private authService: AuthServiceService, private router: Router) { }
   email: string = '';
   password: string = '';
+  shakeIt = false;
+  incorrectPassword = false;
   onClick() : void {
       this.login.nativeElement.blur();
       
@@ -22,7 +24,12 @@ export class LoginPageComponent implements OnInit {
       this.authService.login(this.email, this.password)
         .subscribe(data => {
           if (data.status === '400') {
-            alert("Incorrect Credentials")
+            //alert("Incorrect Credentials")
+            this.incorrectPassword = true;
+            this.shakeIt = true;
+            setTimeout(() => {
+              this.shakeIt = false;
+            }, 300);
           }
           else {
             //go to new component

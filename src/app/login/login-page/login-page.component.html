@@ -9,18 +9,22 @@
         <p class="credentials-username">Email</p>
         <input type="text" class="credentials-username-input" [(ngModel)] = "email">
         <p class="credentials-password">Password</p>
-        <input type="password" class="credentials-password-input" [(ngModel)] = "password">
+        <input type="password" [ngClass]="{'credentials-password-input':true, 'shake':shakeIt}" [(ngModel)] = "password">
+        <div [ngClass]="{'incorrect-password': true, 'incorrect-password-hidden':incorrectPassword, 'shake':shakeIt}">Incorrect Password!</div>
     </div>
     <div></div>
 
-    <button class="login-button" #login (click)="onClick()">
+    <button class="login-page-buttons" #login (click)="onClick()">
         Login
     </button>
     <div></div>
     <a href="" class="login-forgot-password">Forgot Password?</a>
-    <a href=""  class="login-create-account">Create a Account</a>
+  
+
 
 </div>
+<a href=""  class="login-page-buttons" id="create-account">Create Account</a>
+
 
 
   
