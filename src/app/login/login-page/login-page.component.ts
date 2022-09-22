@@ -1,7 +1,8 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { Router } from '@angular/router';
-
+import { RouterModule
+ } from '@angular/router';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -23,7 +24,7 @@ export class LoginPageComponent implements OnInit {
 
       this.authService.login(this.email, this.password)
         .subscribe(data => {
-          if (data.status === '400') {
+          if (data.status === '400') { //incorrect credentials
             //alert("Incorrect Credentials")
             this.incorrectPassword = true;
             this.shakeIt = true;
