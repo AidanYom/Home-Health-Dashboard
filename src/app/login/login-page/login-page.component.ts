@@ -15,7 +15,9 @@ export class LoginPageComponent implements OnInit {
   email: string = '';
   password: string = '';
   shakeIt = false;
+  shakeEmail = false;
   incorrectPassword = false;
+  incorrectEmail = false;
   onClick() : void {
       this.login.nativeElement.blur();
       
@@ -25,12 +27,19 @@ export class LoginPageComponent implements OnInit {
       this.authService.login(this.email, this.password)
         .subscribe(data => {
           if (data.status === '400') { //incorrect credentials
-            //alert("Incorrect Credentials")
-            this.incorrectPassword = true;
-            this.shakeIt = true;
-            setTimeout(() => {
-              this.shakeIt = false;
-            }, 300);
+            if (data.message === 'incorrect password') {
+            
+              this.incorrectPassword = true;
+              this.shakeIt = true;
+              setTimeout(() => {
+                this.shakeIt = false;
+              }, 300);
+            }
+
+            if (data.message === 'incorrect email') {
+              alert('Unrecognized Email')
+            }
+
           }
           else {
             //go to new component
