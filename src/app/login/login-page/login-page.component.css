@@ -154,16 +154,23 @@ input[type="text"] {
         width: 100%;
         font-size: 20px;
         text-align: left;
+        margin-top: 5em;
         
     }
     
     .credentials-username, .credentials-password {
         margin-bottom: 0px;
+        margin-top: 1em;
+    }
+
+    .credentials-username {
+        margin-top: 2em;
     }
 
     .credentials-username-input, .credentials-password-input {
         width: 450px;
         height: 50px;
+
     }
 
     input[type="text"] {

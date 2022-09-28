@@ -1,18 +1,18 @@
 <table mat-table matSort [dataSource]="dataSource"  class="tables">
     <ng-container matColumnDef="Full Name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header id="name">Name</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header id="name-header">Name</th>
         <td mat-cell *matCellDef="let nurse" id="name">{{nurse["Full Name"]}}</td>
     </ng-container>
     <ng-container matColumnDef="no_of_patients_today">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header id="patients">Patients Today</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header id="patients-header">Patients Today</th>
         <td mat-cell *matCellDef="let nurse" id="patients">{{nurse.no_of_patients_today}}</td>
     </ng-container>
     <ng-container matColumnDef="Expertise">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header id="skills">Skills</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header id="skills-header">Skills</th>
         <td mat-cell *matCellDef="let nurse" id="skills">{{nurse.Expertise}}</td>
     </ng-container>
     <ng-container matColumnDef="Phone">
-        <th mat-header-cell *matHeaderCellDef  id="phone_header">Phone Number</th>
+        <th mat-header-cell *matHeaderCellDef  id="phone-header">Phone Number</th>
         <td mat-cell *matCellDef="let nurse" id="phone">{{nurse.Phone}}</td>
     </ng-container>
 
