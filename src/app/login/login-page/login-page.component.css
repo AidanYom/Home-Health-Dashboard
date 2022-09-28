@@ -18,6 +18,7 @@
 }
 
 .welcome {
+    font-family: var(--ff-secondary);
     font-weight: bold;
     font-size: 36px;
 }

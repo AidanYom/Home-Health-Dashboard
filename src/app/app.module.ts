@@ -11,6 +11,11 @@ import { AdminHomepageComponent } from './admin-homepage/admin-homepage.componen
 
 import { RouterEvent, RouterModule, Routes } from '@angular/router';
 import { SignupPageComponent } from './signup/signup-page/signup-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { LandingPageTableComponent } from './landing-page-table/landing-page-table.component';
 
 
 const routes: Routes = [
@@ -26,13 +31,18 @@ const routes: Routes = [
     LoginPageComponent,
     AdminHomepageComponent,
     SignupPageComponent,
+    LandingPageTableComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

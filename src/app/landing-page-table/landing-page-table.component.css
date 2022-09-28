@@ -1,0 +1,46 @@
+.tables {
+    width: 70%;
+    margin: 0 auto;
+    background-color: white;
+    
+
+}
+
+
+
+.mat-row .mat-cell {
+    font-size: 0.8em;
+    color: black;
+    text-align: center;
+    border-top: 1px solid #CDCDCD;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+}
+#name {
+    color: black;
+    text-align: left;
+}
+
+#phone {
+    text-align: right;
+}
+
+.mat-row:hover .mat-cell {
+border-color: currentColor;
+}
+
+.demo-row-is-clicked {
+    font-weight: bold;
+}
+
+
+.mat-header-cell {
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.mat-header-row {
+    background-color: var(--background-color);
+}
