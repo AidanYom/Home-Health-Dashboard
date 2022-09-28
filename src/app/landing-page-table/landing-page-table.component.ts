@@ -1,24 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import { GetNurseService } from '../services/get-nurse.service';
+import {MatSort, Sort} from '@angular/material/sort';
+import {LiveAnnouncer} from '@angular/cdk/a11y';
 
 
 export interface Nurse {
-  Name: string;
-  'Patients Today': number;
-  'Phone Number': string;
+ 
+  'Full Name' : string;
+  'Expertise': string;
+  'no_of_patients_today': number;
+  'Phone': string;
 }
 
-const NURSE_DATA: Nurse[] = [
-  {Name: 'Hydrogen', 'Patients Today': 1.0079, 'Phone Number': '123-456-7890'},
-  {Name: 'Helium', 'Patients Today': 4.0026, 'Phone Number': '123-456-7890'},
-  {Name: 'Lithium', 'Patients Today': 6.941, 'Phone Number': '123-456-7890'},
-  {Name: 'Beryllium', 'Patients Today': 9.0122, 'Phone Number': '123-456-7890'},
-  {Name: 'Boron', 'Patients Today': 10.811, 'Phone Number': '123-456-7890'},
-  {Name: 'Carbon', 'Patients Today': 12.0107, 'Phone Number': '123-456-7890'},
-  {Name: 'Nitrogen', 'Patients Today': 14.0067, 'Phone Number': '123-456-7890'},
-  {Name: 'Oxygen', 'Patients Today': 15.9994, 'Phone Number': '123-456-7890'},
-  {Name: 'Fluorine', 'Patients Today': 18.9984, 'Phone Number': '123-456-7890'},
-  { Name: 'Neon', 'Patients Today': 20.1797, 'Phone Number': '123-456-7890'},
-];
+// const NURSE_DATA: Nurse[] = [
+//   {Name: 'Hydrogen', 'Patients Today': 1.0079, 'Phone Number': '123-456-7890'},
+//   {Name: 'Helium', 'Patients Today': 4.0026, 'Phone Number': '123-456-7890'},
+//   {Name: 'Lithium', 'Patients Today': 6.941, 'Phone Number': '123-456-7890'},
+//   {Name: 'Beryllium', 'Patients Today': 9.0122, 'Phone Number': '123-456-7890'},
+//   {Name: 'Boron', 'Patients Today': 10.811, 'Phone Number': '123-456-7890'},
+//   {Name: 'Carbon', 'Patients Today': 12.0107, 'Phone Number': '123-456-7890'},
+//   {Name: 'Nitrogen', 'Patients Today': 14.0067, 'Phone Number': '123-456-7890'},
+//   {Name: 'Oxygen', 'Patients Today': 15.9994, 'Phone Number': '123-456-7890'},
+//   {Name: 'Fluorine', 'Patients Today': 18.9984, 'Phone Number': '123-456-7890'},
+//   { Name: 'Neon', 'Patients Today': 20.1797, 'Phone Number': '123-456-7890'},
+// ];
 
 @Component({
   selector: 'app-landing-page-table',
@@ -28,14 +33,37 @@ const NURSE_DATA: Nurse[] = [
 
 
 export class LandingPageTableComponent implements OnInit {
+  //future get org from admin log in
+  org = "IU Health Laffayette"
+  constructor(private getNurseService: GetNurseService, private _liveAnnouncer: LiveAnnouncer) { }
 
-  constructor() { }
-
-  displayedColumns: string[] = ['Name', 'Patients Today', 'Phone Number'];
-  dataSource = NURSE_DATA;
+  displayedColumns: string[] = ['Full Name', 'no_of_patients_today', 'Expertise', 'Phone'];
+  dataSource: Nurse[] = []
   clickedRows = new Set<Nurse>();
 
   ngOnInit(): void {
-  }
 
+    //this.dataSource = NURSE_DATA;
+    const NURSE_DATA: Nurse[] = []
+    console.log("yo");
+    this.getNurseService.getNurses(this.org)
+    .subscribe(data => {
+      //console.log(data.data);
+      for (let i = 0; i < data.data.length; i++) {
+        const row: Nurse = {
+          'Full Name' : data.data[i].firstName + ' ' + data.data[i].lastName,
+          'no_of_patients_today' : 4,
+          'Expertise' : data.data[i].skillDescription,
+          'Phone': data.data[i].phone
+        }
+
+        NURSE_DATA.push(row)
+        
+
+      }
+      this.dataSource = NURSE_DATA;
+
+    })
+  }
+  
 }

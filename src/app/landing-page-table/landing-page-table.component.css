@@ -6,7 +6,17 @@
 
 }
 
+#patients {
+    text-align: left;
+}
 
+#phone_header {
+    text-align: right;
+}
+
+#skills {
+    text-align: left;
+}
 
 .mat-row .mat-cell {
     font-size: 0.8em;
