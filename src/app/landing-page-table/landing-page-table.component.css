@@ -1,9 +1,11 @@
+.container {
+    padding-bottom: 2em;
+}
 .tables {
     width: 70%;
     margin: 0 auto;
     background-color: white;
-    
-
+    font-family: var(--ff-primary);
 }
 
 #patients-header {
@@ -65,4 +67,9 @@ border-color: currentColor;
 
 th {
     background-color: var(--background-color);
+}
+
+mat-paginator {
+    margin: 0 auto;
+    width: 70%;
 }

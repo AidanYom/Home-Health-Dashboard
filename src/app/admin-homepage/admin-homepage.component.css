@@ -6,11 +6,12 @@
     margin-right: auto;
     margin-bottom: 10em;
     background-color: var(--background-color);
+
 }
 
 h2 {
     text-align: center;
-    margin-top: 20px;
+    padding-top: 20px;
     font-size: 1.8em;
 }
 

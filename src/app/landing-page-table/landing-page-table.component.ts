@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterContentInit, AfterViewInit } from '@angular/core';
 import { GetNurseService } from '../services/get-nurse.service';
 import {MatSort, Sort} from '@angular/material/sort';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 
 export interface Nurse {
@@ -35,11 +37,19 @@ export interface Nurse {
 export class LandingPageTableComponent implements OnInit {
   //future get org from admin log in
   org = "IU Health Laffayette"
-  constructor(private getNurseService: GetNurseService, private _liveAnnouncer: LiveAnnouncer) { }
+  constructor(private getNurseService: GetNurseService, private _liveAnnouncer: LiveAnnouncer ) { }
 
   displayedColumns: string[] = ['Full Name', 'no_of_patients_today', 'Expertise', 'Phone'];
-  dataSource: Nurse[] = []
+
+  dataSource = new MatTableDataSource<Nurse>([]);
+
   clickedRows = new Set<Nurse>();
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
+  @ViewChild(MatSort)
+  sort!: MatSort;
 
   ngOnInit(): void {
 
@@ -61,9 +71,13 @@ export class LandingPageTableComponent implements OnInit {
         
 
       }
-      this.dataSource = NURSE_DATA;
+      this.dataSource = new MatTableDataSource<Nurse>(NURSE_DATA);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
 
     })
   }
+
+
   
 }
