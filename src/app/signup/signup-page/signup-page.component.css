@@ -8,7 +8,7 @@
     
 }
 
-.login {
+.signup {
     display: block;
     font-family: var(--ff-primary);
     margin-left: auto;
@@ -20,6 +20,7 @@
 .welcome {
     font-weight: bold;
     font-size: 36px;
+    font-family: var(--ff-primary);
 }
 
 .credentials-username, .credentials-password,.credentials-fname  {
@@ -103,13 +104,13 @@ input[type="text"] {
         text-align: center;
 
     }
-    .login {
+    .signup {
         max-width: 1000px;
         display: grid;
         padding: 2em;
         font-family: var(--ff-primary);
         grid-template-columns: 400px 1fr;
-        padding-top: 50px;
+        padding-top: 8em;
         margin: auto auto;
         align-items: center;
         grid-column-gap: 5em;
@@ -127,11 +128,15 @@ input[type="text"] {
         width: 100%;
         font-size: 20px;
         text-align: left;
-        
     }
     
     .credentials-username, .credentials-password, .credentials-fname {
         margin-bottom: 0px;
+        margin-top: 0.8em;;
+    }
+
+    #fname {
+        margin-top: 3em;
     }
 
     .credentials-username-input, .credentials-password-input, .credentials-username-fname, .credentials-username-lname {

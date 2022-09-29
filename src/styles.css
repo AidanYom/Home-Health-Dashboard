@@ -13,6 +13,7 @@
     --fw-bold: 800;
 
     --background-color: #F8F8F8;;
+    background-color: var(--background-color);
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
