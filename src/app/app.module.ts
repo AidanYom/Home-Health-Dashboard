@@ -16,13 +16,15 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { LandingPageTableComponent } from './landing-page-table/landing-page-table.component';
+import { NurseProfPageComponent } from './nurse-prof-page/nurse-prof-page.component';
 
 
 const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'admin', component: AdminHomepageComponent},
   {path: '', component:LoginPageComponent},
-  {path: 'signup', component: SignupPageComponent}
+  {path: 'signup', component: SignupPageComponent},
+  {path: 'profpage', component: NurseProfPageComponent}
 ]
 
 @NgModule({
@@ -32,6 +34,7 @@ const routes: Routes = [
     AdminHomepageComponent,
     SignupPageComponent,
     LandingPageTableComponent,
+    NurseProfPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import {MatSort, Sort} from '@angular/material/sort';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { Router } from '@angular/router';
 
 
 export interface Nurse {
@@ -12,6 +13,7 @@ export interface Nurse {
   'Expertise': string;
   'no_of_patients_today': number;
   'Phone': string;
+  'id' : number;
 }
 
 // const NURSE_DATA: Nurse[] = [
@@ -37,7 +39,7 @@ export interface Nurse {
 export class LandingPageTableComponent implements OnInit {
   //future get org from admin log in
   org = "IU Health Laffayette"
-  constructor(private getNurseService: GetNurseService, private _liveAnnouncer: LiveAnnouncer ) { }
+  constructor(private getNurseService: GetNurseService, private _liveAnnouncer: LiveAnnouncer, private router: Router) { }
 
   displayedColumns: string[] = ['Full Name', 'no_of_patients_today', 'Expertise', 'Phone'];
 
@@ -58,13 +60,14 @@ export class LandingPageTableComponent implements OnInit {
     console.log("yo");
     this.getNurseService.getNurses(this.org)
     .subscribe(data => {
-      //console.log(data.data);
+      
       for (let i = 0; i < data.data.length; i++) {
         const row: Nurse = {
           'Full Name' : data.data[i].firstName + ' ' + data.data[i].lastName,
           'no_of_patients_today' : 4,
           'Expertise' : data.data[i].skillDescription,
-          'Phone': data.data[i].phone
+          'Phone': data.data[i].phone,
+          'id' : data.data[i].n_Nurse_Id
         }
 
         NURSE_DATA.push(row)
@@ -78,6 +81,10 @@ export class LandingPageTableComponent implements OnInit {
     })
   }
 
+  onRowClick(row: any) {
+    console.log(row)
+    this.router.navigateByUrl("/profpage", { state: row})
+  }
 
   
 }
