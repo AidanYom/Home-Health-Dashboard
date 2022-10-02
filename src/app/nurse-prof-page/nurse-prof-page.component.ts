@@ -1,21 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+export interface Nurse {
+ 
+  'Full Name' : string;
+  'Expertise': string;
+  'no_of_patients_today': number;
+  'Phone': string;
+  'id' : number;
+}
+
 @Component({
   selector: 'app-nurse-prof-page',
   templateUrl: './nurse-prof-page.component.html',
   styleUrls: ['./nurse-prof-page.component.css']
 })
 export class NurseProfPageComponent implements OnInit {
-  state$: any;
   
+  
+  row: any;
+  full_name: any;
 
-  constructor(public activatedRoute: ActivatedRoute, private router: Router) { }
 
-  ngOnInit(): void {
-    
-    console.log(history.state)
-    
+  constructor(public activatedRoute: ActivatedRoute, private router: Router) {
+    this.row = (this.router.getCurrentNavigation()!.extras.state);
   }
+  nurse: Nurse[] = [];
+  ngOnInit(): void {
+    this.full_name = this.row["Full Name"];
+  }
+  
 
 }

@@ -82,7 +82,7 @@ export class LandingPageTableComponent implements OnInit {
   }
 
   onRowClick(row: any) {
-    console.log(row)
+    //console.log(row)
     this.router.navigateByUrl("/profpage", { state: row})
   }
 
