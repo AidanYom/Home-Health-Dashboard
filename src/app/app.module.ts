@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 import { AppComponent } from './app.component';
@@ -51,8 +52,12 @@ const routes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+<<<<<<< HEAD
     MatFormFieldModule,
     MatInputModule
+=======
+    MatSidenavModule
+>>>>>>> refs/remotes/origin/main
   ],
   providers: [],
   bootstrap: [AppComponent]
