@@ -14,6 +14,7 @@ export interface Nurse {
   'no_of_patients_today': number;
   'Phone': string;
   'id' : number;
+  'Email': any
 }
 
 // const NURSE_DATA: Nurse[] = [
@@ -67,6 +68,7 @@ export class LandingPageTableComponent implements OnInit {
           'no_of_patients_today' : 4,
           'Expertise' : data.data[i].skillDescription,
           'Phone': data.data[i].phone,
+          'Email': data.data[i].email,
           'id' : data.data[i].n_Nurse_Id
         }
 

@@ -20,6 +20,9 @@ export class NurseProfPageComponent implements OnInit {
   
   row: any;
   full_name: any;
+  email: any;
+  phone: any;
+  expertise:any;
 
 
   constructor(public activatedRoute: ActivatedRoute, private router: Router) {
@@ -28,6 +31,10 @@ export class NurseProfPageComponent implements OnInit {
   nurse: Nurse[] = [];
   ngOnInit(): void {
     this.full_name = this.row["Full Name"];
+    this.email = this.row["Email"];
+    this.phone = this.row["Phone"];
+    this.expertise = this.row["Expertise"];
+
   }
   
 
