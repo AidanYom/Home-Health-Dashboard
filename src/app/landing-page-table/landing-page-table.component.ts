@@ -72,7 +72,7 @@ export class LandingPageTableComponent implements OnInit {
           'id' : data.data[i].n_Nurse_Id
         }
 
-        NURSE_DATA.push(row)
+        NURSE_DATA.unshift(row);
         
 
       }
