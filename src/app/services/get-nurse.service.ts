@@ -23,7 +23,7 @@ export class GetNurseService {
 
   }
 
-  addNurses(nurseid: number, fname: string, lname: string, email: string, phone: string, skills: string, org:string): Observable<any> {
+  addNurses(nurseid: number, fname: string, lname: string, email: string, phone: string, skill: string, org:string): Observable<any> {
 
     const headers = { 'content-type': 'application/json'}
     const body = {
@@ -32,11 +32,12 @@ export class GetNurseService {
       "lname" : lname,
       "email" : email,
       "phone" : phone,
-      "skills" : skills,
+      "skill" : skill,
       "org" : org,
     }
+    console.log(skill)
 
-    return this.http.post(this.baseURL + 'get-nurses', body,{'headers':headers})
+    return this.http.post(this.baseURL + 'new-nurse', body,{'headers':headers})
 
   }
 

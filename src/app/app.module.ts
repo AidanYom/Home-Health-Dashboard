@@ -21,6 +21,7 @@ import { NurseProfPageComponent } from './nurse-prof-page/nurse-prof-page.compon
 import { SidebarNavComponent } from './sidebar-nav/sidebar-nav.component';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { AddNurseComponent } from './add-nurse/add-nurse.component';
 
 
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: '', component:LoginPageComponent},
   {path: 'signup', component: SignupPageComponent},
   {path: 'profpage', component: NurseProfPageComponent},
-  {path: 'test-sidenav', component: SidebarNavComponent} //temporary until we get other components final and can just be passed into other components
+  {path: 'test-sidenav', component: SidebarNavComponent},
+  {path: 'add-nurse', component: AddNurseComponent} //temporary until we get other components final and can just be passed into other components
 ]
 
 @NgModule({
@@ -41,6 +43,7 @@ const routes: Routes = [
     LandingPageTableComponent,
     NurseProfPageComponent,
     SidebarNavComponent,
+    AddNurseComponent,
   ],
   imports: [
     BrowserModule,
