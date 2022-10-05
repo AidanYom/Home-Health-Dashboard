@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 import { AppComponent } from './app.component';
@@ -17,6 +18,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { LandingPageTableComponent } from './landing-page-table/landing-page-table.component';
 import { NurseProfPageComponent } from './nurse-prof-page/nurse-prof-page.component';
+import { SidebarNavComponent } from './sidebar-nav/sidebar-nav.component';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 const routes: Routes = [
@@ -24,7 +28,8 @@ const routes: Routes = [
   {path: 'admin', component: AdminHomepageComponent},
   {path: '', component:LoginPageComponent},
   {path: 'signup', component: SignupPageComponent},
-  {path: 'profpage', component: NurseProfPageComponent}
+  {path: 'profpage', component: NurseProfPageComponent},
+  {path: 'test-sidenav', component: SidebarNavComponent} //temporary until we get other components final and can just be passed into other components
 ]
 
 @NgModule({
@@ -35,6 +40,7 @@ const routes: Routes = [
     SignupPageComponent,
     LandingPageTableComponent,
     NurseProfPageComponent,
+    SidebarNavComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +51,12 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+
+    MatFormFieldModule,
+    MatInputModule,
+    MatSidenavModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
