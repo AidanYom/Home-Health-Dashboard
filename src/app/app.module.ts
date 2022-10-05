@@ -52,12 +52,11 @@ const routes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-<<<<<<< HEAD
+
     MatFormFieldModule,
-    MatInputModule
-=======
+    MatInputModule,
     MatSidenavModule
->>>>>>> refs/remotes/origin/main
+
   ],
   providers: [],
   bootstrap: [AppComponent]
