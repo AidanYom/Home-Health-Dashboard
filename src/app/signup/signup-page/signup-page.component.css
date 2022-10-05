@@ -94,7 +94,22 @@ input[type="text"] {
 
 }
 
+.backToLoginButton{
+    font-family: var(--ff-primary);
+    color: black;
+    border: none;
+    background: none;
+    font-size: 17px;
+    color: black;
+    margin: -20px 75px 0px 60px;
+    margin-bottom: 10px;
+    cursor: pointer;
 
+}
+.backToLoginButton:focus {
+    outline: none;
+    border: 2px solid #1A1A1A;
+}
 
 
 
