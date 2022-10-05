@@ -18,6 +18,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { LandingPageTableComponent } from './landing-page-table/landing-page-table.component';
 import { NurseProfPageComponent } from './nurse-prof-page/nurse-prof-page.component';
 import { SidebarNavComponent } from './sidebar-nav/sidebar-nav.component';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 const routes: Routes = [
@@ -48,7 +50,9 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

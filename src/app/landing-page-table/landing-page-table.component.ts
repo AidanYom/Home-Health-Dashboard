@@ -79,11 +79,23 @@ export class LandingPageTableComponent implements OnInit {
       this.dataSource.sort = this.sort;
 
     })
+
   }
 
   onRowClick(row: any) {
     //console.log(row)
     this.router.navigateByUrl("/profpage", { state: row})
+  }
+
+  nurseSearch(event : Event) {
+    const search = (event.target as HTMLInputElement).value;
+
+    this.dataSource.filter = search.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+
   }
 
   
