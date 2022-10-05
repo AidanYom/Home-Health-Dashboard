@@ -34,5 +34,8 @@ export class SignupPageComponent implements OnInit {
 
     
   }
+  backToLoginClick(){
+    this.router.navigateByUrl('login')
+  }
 
 }
