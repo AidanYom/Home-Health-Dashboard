@@ -23,8 +23,7 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { AddNurseComponent } from './add-nurse/add-nurse.component';
 import { ForgetPasswordPageComponent } from './forget-password-page/forget-password-page.component';
-
-
+import {MatIconModule} from '@angular/material/icon';
 const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'admin', component: AdminHomepageComponent},
