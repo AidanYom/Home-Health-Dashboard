@@ -2,6 +2,7 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-homepage',
@@ -14,9 +15,13 @@ import {MatInputModule} from '@angular/material/input';
 
 export class AdminHomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  navigateToAddNurse() {
+    this.router.navigateByUrl('add-nurse');
   }
 
 }
