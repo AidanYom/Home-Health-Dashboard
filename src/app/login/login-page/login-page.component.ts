@@ -1,8 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { Router } from '@angular/router';
-import { RouterModule
- } from '@angular/router';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',

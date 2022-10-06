@@ -5,7 +5,7 @@ import { LoginPageComponent } from './login/login-page/login-page.component';
 import { AdminHomepageComponent } from './admin-homepage/admin-homepage.component';
 
 import { SignupPageComponent } from './signup/signup-page/signup-page.component';
-
+import { ForgetPasswordPageComponent } from './forget-password-page/forget-password-page.component';
 
 @NgModule({
   declarations: [],
@@ -14,4 +14,4 @@ import { SignupPageComponent } from './signup/signup-page/signup-page.component'
   ]
 })
 export class AppRoutingModule { }
-export const routingComponents = [LoginPageComponent, AdminHomepageComponent, SignupPageComponent]
+export const routingComponents = [LoginPageComponent, AdminHomepageComponent, SignupPageComponent, ForgetPasswordPageComponent]
