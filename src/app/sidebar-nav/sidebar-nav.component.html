@@ -3,24 +3,34 @@
     <mat-sidenav mode="side" opened>
         <div class= "sidebar-content">
             <!-- hit a service that returns name and role of who is logged in -->
-            <div class="sidebar-content name">
-                <h3><b>Person Name</b></h3>
+            <div class="sidebar-content-name">
+                    <img src="assets/img/id-card.png" class="id-img">
+                    <h2 class="name"><b>Person Name</b></h2>
+                    <h3 class="name"><b>Role</b></h3>
             </div>
             <div class="sidebar-content">
                 <a routerLink="../admin">
-                    <button mat-button>Home</button>
+                    <button>Home</button>
                 </a>
             </div>
             <div class="sidebar-content">
                 <a routerLink="../profpage">
-                    <button mat-button>Nurses</button>
+                    <button>Nurses</button>
                 </a>
             </div>
             <div class="sidebar-content">
-                <a routerLink="../login" class="logout">
-                    <div class="logout">
-                        <h5>Logout</h5>
-                    </div>
+                <a routerLink="../admin">
+                    <button>Patients</button>
+                </a>
+            </div>
+            <div class="sidebar-content">
+                <a routerLink="../admin">
+                    <button>Settings</button>
+                </a>
+            </div>
+            <div class="sidebar-content-logout">
+                <a routerLink="../login">
+                    Logout
                 </a>
             </div>
         </div>

@@ -17,7 +17,6 @@ mat-sidenav {
 }
 
 mat-sidenav-content {
-    /* height: calc(100vh - 98px); */
     margin: 16px;
     margin-left: 32px;
 
@@ -29,8 +28,31 @@ mat-sidenav-content {
     
 }
 
-mat-sidenav-container {
-    height: calc(100vh);
+.sidebar-content-logout {
+    position: fixed center;
+    margin-top: calc(100vh - 350px);
+}
+
+.sidebar-content-name {
+    margin-top: 20px;
+    margin-bottom:25px;
+    color: #000000;
+    /* font-family: Roboto, "Helvetica Neue", sans-serif; */
+}
+
+.id-img {
+    float: left;
+    height: 50px;
+    width: 50px;
+    margin-left: 5px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+.name {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 button {
@@ -41,8 +63,8 @@ button {
   color: #000000;
   cursor: pointer;
   display: inline-flex;
-  /* fill: #000; */
-  /* font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif; */
+  font-size: 1rem;
+  /* font-family: Roboto, "Helvetica Neue", sans-serif; */
   height: 48px;
   justify-content: center;
   letter-spacing: -.8px;
@@ -55,20 +77,6 @@ button {
   touch-action: manipulation;
 }
 
-
-/*
 button:hover {
   border-color: rgb(255, 255, 255);
-  /* color: #06f;
-  fill: #06f; */
-
-
-.logout {
-  color:black;
 }
-/* 
-button:active {
-  border-color: #06f;
-  color: #06f;
-  fill: #06f;
-} */
