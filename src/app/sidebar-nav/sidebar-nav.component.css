@@ -29,14 +29,9 @@ mat-sidenav-content {
     
 }
 
-<<<<<<< Updated upstream
-mat-sidenav-container {
-    height: calc(100vh);
-=======
 .sidebar-content-logout {
     position: fixed center;
     bottom: 0px;
->>>>>>> Stashed changes
 }
 
 button {
