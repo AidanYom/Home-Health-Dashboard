@@ -17,7 +17,7 @@ mat-sidenav {
 }
 
 mat-sidenav-content {
-    height: calc(100vh - 98px);
+    /* height: calc(100vh - 98px); */
     margin: 16px;
     margin-left: 32px;
 
@@ -29,20 +29,26 @@ mat-sidenav-content {
     
 }
 
+<<<<<<< Updated upstream
 mat-sidenav-container {
     height: calc(100vh);
+=======
+.sidebar-content-logout {
+    position: fixed center;
+    bottom: 0px;
+>>>>>>> Stashed changes
 }
 
 button {
   align-items: center;
-  background-color: #fff;
-  border: 2px solid #AFAFAF;
+  background-color: #c4c4c4;
+  border: 1px solid #AFAFAF;
   box-sizing: border-box;
   color: #000000;
   cursor: pointer;
   display: inline-flex;
   /* fill: #000; */
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  /* font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif; */
   height: 48px;
   justify-content: center;
   letter-spacing: -.8px;
@@ -52,18 +58,14 @@ button {
   padding: 0 17px;
   text-align: center;
   transition: all .3s;
-  user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
 }
 
-/* button:focus {
-  color: #171e29;
-} */
 
 /*
 button:hover {
   border-color: rgb(255, 255, 255);
+<<<<<<< Updated upstream
   /* color: #06f;
   fill: #06f; */
 
@@ -77,3 +79,6 @@ button:active {
   color: #06f;
   fill: #06f;
 } */
+=======
+}
+>>>>>>> Stashed changes
