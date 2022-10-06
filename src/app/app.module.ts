@@ -21,7 +21,10 @@ import { NurseProfPageComponent } from './nurse-prof-page/nurse-prof-page.compon
 import { SidebarNavComponent } from './sidebar-nav/sidebar-nav.component';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatNativeDateModule} from '@angular/material/core';
 import { AddNurseComponent } from './add-nurse/add-nurse.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { AddPatientComponent } from './add-patient/add-patient.component';
 import { ForgetPasswordPageComponent } from './forget-password-page/forget-password-page.component';
 import {MatIconModule} from '@angular/material/icon';
 const routes: Routes = [
@@ -32,7 +35,8 @@ const routes: Routes = [
   {path: 'profpage', component: NurseProfPageComponent},
   {path: 'test-sidenav', component: SidebarNavComponent},
   {path: 'add-nurse', component: AddNurseComponent}, //temporary until we get other components final and can just be passed into other components
-  {path: 'forgetPassword', component: ForgetPasswordPageComponent}
+  {path: 'forgetPassword', component: ForgetPasswordPageComponent},
+  {path: 'add-patient', component:AddPatientComponent}
 ]
 
 @NgModule({
@@ -45,6 +49,7 @@ const routes: Routes = [
     NurseProfPageComponent,
     SidebarNavComponent,
     AddNurseComponent,
+    AddPatientComponent,
     ForgetPasswordPageComponent,
   ],
   imports: [
@@ -57,7 +62,8 @@ const routes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-
+    MatNativeDateModule,
+    MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
     MatSidenavModule

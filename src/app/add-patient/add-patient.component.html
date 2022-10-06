@@ -1,0 +1,38 @@
+<h1>
+    Add Nurse
+</h1>
+
+<div class="container">
+    <p id="first-name" class="add-patient-text">First Name</p>
+    <input type="text" id="first-name-input" class="add-patient-input" [(ngModel)] = "first_name">
+    <p id="last-name" class="add-patient-text">Last Name</p>
+    <input type="text" id="last-name-input" class="add-patient-input" [(ngModel)] = "last_name">
+    <p id="email" class="add-patient-text">Email</p>
+    <input type="text" id="email-input"  class="add-patient-input" [(ngModel)] = "email">
+    <p id="phone" class="add-patient-text">Phone</p>
+    <input type="text" id="phone-input" class="add-patient-input" [(ngModel)] = "phone">
+    <p id="street" class="add-patient-text">Street</p>
+    <input type="text" id="street-input" class="add-patient-input" [(ngModel)] = "street">
+    <p id="city" class="add-patient-text">City</p>
+    <input type="text" id="street-input" class="add-patient-input" [(ngModel)] = "city">
+    <p id="zip" class="add-patient-text">Zip</p>
+    <input type="text" id="street-input" class="add-patient-input" [(ngModel)] = "zip">
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+      
+
+
+    <button (click)="addPatient()">
+        Add Nurse
+    </button>
+
+
+</div>

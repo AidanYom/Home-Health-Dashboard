@@ -1,0 +1,58 @@
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+}
+  
+::ng-deep.mat-form-field-underline {
+/*change color of underline*/
+background-color: black !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+/*change color of underline when focused*/
+background-color: black !important;
+}
+
+mat-label {
+    color: black;
+    font-family: var(--ff-primary);
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: black!important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+    padding: 0 0.75em 0 0.75em;
+    margin-top: -0.25em;
+    background: white !important;
+    outline: black;
+    border-radius: 10px;
+    position: relative;
+    height: 90%;
+}
+
+::ng-deep .mat-form-field-suffix .ng-tns-c89-0 .ng-star-inserted{
+    color: black !important;
+}
+
+.add-patient-text {
+    font-family: var(--ff-primary);
+    margin: 0;
+}
+
+.add-patient-input {
+    font-family: var(--ff-primary);
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 0.3em;
+    width: 15em;
+    height: 2.5em;
+    -webkit-transition: 0.05s ease;
+    transition: 0.05s ease;
+}
+
+.add-patient-input:focus {
+    outline: none;
+    border: 2px solid #1A1A1A;
+}

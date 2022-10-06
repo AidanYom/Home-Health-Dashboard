@@ -29,14 +29,8 @@ mat-sidenav-content {
     
 }
 
-<<<<<<< Updated upstream
 mat-sidenav-container {
     height: calc(100vh);
-=======
-.sidebar-content-logout {
-    position: fixed center;
-    bottom: 0px;
->>>>>>> Stashed changes
 }
 
 button {
@@ -65,7 +59,6 @@ button {
 /*
 button:hover {
   border-color: rgb(255, 255, 255);
-<<<<<<< Updated upstream
   /* color: #06f;
   fill: #06f; */
 
@@ -79,6 +72,3 @@ button:active {
   color: #06f;
   fill: #06f;
 } */
-=======
-}
->>>>>>> Stashed changes
