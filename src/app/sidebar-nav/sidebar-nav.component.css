@@ -80,3 +80,7 @@ button {
 button:hover {
   border-color: rgb(255, 255, 255);
 }
+
+a:visited, a:active, a:link{
+    text-decoration: none;
+}
