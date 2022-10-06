@@ -12,7 +12,6 @@ mat-sidenav {
     width: 200px;
     border-right: none;
     background: #c4c4c4;
-    color: white;
     /* padding: 16px; */
     text-align: center;
 }
@@ -27,11 +26,11 @@ mat-sidenav-content {
     align-items: center;
 
     font-size: 2rem;
-    color: lightgray;
+    
 }
 
 mat-sidenav-container {
-    height: calc(100vh - 65px);
+    height: calc(100vh);
 }
 
 button {
@@ -62,10 +61,15 @@ button {
   color: #171e29;
 } */
 
+/*
 button:hover {
   border-color: rgb(255, 255, 255);
   /* color: #06f;
   fill: #06f; */
+
+
+.logout {
+  color:black;
 }
 /* 
 button:active {

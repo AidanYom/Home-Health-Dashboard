@@ -22,6 +22,7 @@ import { SidebarNavComponent } from './sidebar-nav/sidebar-nav.component';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { AddNurseComponent } from './add-nurse/add-nurse.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 const routes: Routes = [
