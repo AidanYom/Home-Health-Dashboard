@@ -32,7 +32,15 @@ mat-label {
     height: 90%;
 }
 
-::ng-deep .mat-form-field-suffix .ng-tns-c89-0 .ng-star-inserted{
+::ng-deep .ng-tns-c89-0 {
+    color: black !important;
+}
+
+::ng-deep  .ng-tns-c89-1 {
+    color: black !important;
+}
+
+::ng-deep .ng-tns-c89-2 {
     color: black !important;
 }
 
@@ -55,4 +63,22 @@ mat-label {
 .add-patient-input:focus {
     outline: none;
     border: 2px solid #1A1A1A;
+}
+
+
+button {
+    font-family: var(--ff-primary);
+    appearance: none;
+    background-color: #000000;
+    border: 2px solid #1A1A1A;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    width: 10em;
+    height: 3em;
+    cursor: pointer;
+    border-radius: 12px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

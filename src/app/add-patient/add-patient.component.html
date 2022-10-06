@@ -1,5 +1,5 @@
 <h1>
-    Add Nurse
+    Add Patient
 </h1>
 
 <div class="container">
@@ -17,21 +17,53 @@
     <input type="text" id="street-input" class="add-patient-input" [(ngModel)] = "city">
     <p id="zip" class="add-patient-text">Zip</p>
     <input type="text" id="street-input" class="add-patient-input" [(ngModel)] = "zip">
+
+    <p id="nurse" class="add-patient-text">Assigned Nurse</p>
+    <input type="text" id="nurse-input" class="add-patient-input" [(ngModel)] = "nurse">
+
+    <p id="treatment" class="add-patient-text">Treatment Description</p>
+    <input type="text" id="treatment-input" class="add-patient-input" [(ngModel)] = "treatment">
+
+    <p id="dob" class="add-patient-text">Date of Birth</p>
     <div>
         <mat-form-field appearance="outline">
             <mat-label>Date of Birth</mat-label>
-            <input matInput [matDatepicker]="picker">
+            <input matInput [matDatepicker]="picker1">
             <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
     </div>
 
+
+    <p id="start-date" class="add-patient-text">Start Date</p>
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Start Date</mat-label>
+            <input matInput [matDatepicker]="picker2">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+
+
+    <p id="end-date" class="add-patient-text">End Date</p>
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>End Date</mat-label>
+            <input matInput [matDatepicker]="picker3">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+        </mat-form-field>
+    </div>
       
 
 
     <button (click)="addPatient()">
-        Add Nurse
+        Add Patient
     </button>
 
 
