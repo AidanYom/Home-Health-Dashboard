@@ -24,6 +24,12 @@ h1 {
     margin-bottom: 1em;
 }
 
+mat-hint {
+    color: black;
+    font-family: var(--ff-primary);
+    font-size: 1.2em;
+}
+
 ::ng-deep .mat-focused .mat-form-field-label {
     /*change color of label*/
     color: black !important;
@@ -75,6 +81,34 @@ input {
     color: black !important;
 }
 
+
+::ng-deep .ng-tns-c92-4 {
+    color: black;
+
+}
+
+
+
+mat-select {
+    font-family: var(--ff-primary);
+    font-size: 1.2em;
+}
+
+::ng-deep .mat-select-panel .mat-option {
+    color: black;
+    background-color: white;
+    font-family: var(--ff-primary);
+}
+
+.mat-active {
+    background: #7ace8f !important;
+    color: black !important;
+}
+
+::ng-deep .mat-option:hover {
+    background: #7ace8f !important;
+    color: black;
+}
 
 .add-patient-text {
     font-family: var(--ff-primary);

@@ -86,11 +86,13 @@
         <!-- <p id="nurse" class="add-patient-text">Assigned Nurse</p> -->
         <mat-form-field appearance="standard">
             <mat-label>Assigned Nurse</mat-label>
-            <mat-select>
+            <mat-select [(ngModel)] = "nurse">
+            <mat-option>---</mat-option>
               <mat-option *ngFor="let nurse of nurses" [value]="nurse['Full Name']">
                 {{nurse["Full Name"]}}
               </mat-option>
             </mat-select>
+            <mat-hint>Select a Nurse</mat-hint>
           </mat-form-field>
     </div>
 
