@@ -1,0 +1,118 @@
+
+
+<div class="container">
+
+    <h1>
+        Add/Edit Patient
+    </h1>
+    <div class="first-name">
+        <p id="first-name-text" class="add-patient-text">First Name</p>
+        <input type="text" id="first-name-input" class="add-patient-input" [(ngModel)] = "first_name">
+    </div>
+
+    <div class="last-name">
+        <p id="last-name-text" class="add-patient-text">Last Name</p>
+        <input type="text" id="last-name-input" class="add-patient-input" [(ngModel)] = "last_name">
+    </div>
+
+    <div class="last-col">
+        <!-- <p id="dob" class="add-patient-text">Date of Birth</p> -->
+        <div>
+            <mat-form-field appearance="standard">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker1" [(ngModel)] = "dateOfBirth">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div>
+        <p id="email" class="add-patient-text">Email</p>
+        <input type="text" id="email-input"  class="add-patient-input" [(ngModel)] = "email">
+    </div>
+
+    <div>
+        <p id="phone" class="add-patient-text">Phone</p>
+        <input type="text" id="phone-input" class="add-patient-input" [(ngModel)] = "phone">
+    </div>
+
+    <div></div>
+
+    <div>
+        <p id="street" class="add-patient-text">Street</p>
+        <input type="text" id="street-input" class="add-patient-input" [(ngModel)] = "street">
+    </div>
+
+    <div>
+        <p id="city" class="add-patient-text">City</p>
+        <input type="text" id="street-input" class="add-patient-input" [(ngModel)] = "city">
+    </div>
+
+    <div class="last-col">
+        <p id="zip" class="add-patient-text">Zip</p>
+        <input type="text" id="street-input" class="add-patient-input" [(ngModel)] = "zip">
+    </div>
+
+    <div>
+        <!-- <p id="start-date" class="add-patient-text">Start Date</p> -->
+        <div>
+            <mat-form-field appearance="standard">
+                <mat-label>Start Date</mat-label>
+                <input matInput [matDatepicker]="picker2" [(ngModel)] = "startDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+    </div>
+
+    <div>
+        <!-- <p id="end-date" class="add-patient-text">End Date</p> -->
+        <div>
+            <mat-form-field appearance="standard">
+                <mat-label>End Date</mat-label>
+                <input matInput [matDatepicker]="picker3" [(ngModel)] = "endDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                <mat-datepicker #picker3></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="last-col">
+        <!-- <p id="nurse" class="add-patient-text">Assigned Nurse</p> -->
+        <mat-form-field appearance="standard">
+            <mat-label>Assigned Nurse</mat-label>
+            <mat-select [(ngModel)] = "nurse">
+            <mat-option>---</mat-option>
+              <mat-option *ngFor="let nurse of nurses" [value]="nurse['Full Name']">
+                {{nurse["Full Name"]}}
+              </mat-option>
+            </mat-select>
+            <mat-hint>Select a Nurse</mat-hint>
+          </mat-form-field>
+    </div>
+
+    <div id="treatment">
+        <p id="treatment-text" class="add-patient-text">Treatment Description</p>
+        <textarea value="" rows="3" id="treatment-input" class="add-patient-input" [(ngModel)] = "treatment"></textarea>
+    </div>
+
+    <div></div>
+    <div></div>
+
+    <div></div>
+
+
+    <div class="last-col" id="save-button">
+        <button (click)="addPatient()">
+            Add Patient
+        </button>
+    </div>
+
+
+
+</div>

@@ -28,7 +28,8 @@ export class AddNurseComponent implements OnInit {
           console.log("success!")
         }
       }
-    ) 
+    )
+    this.router.navigateByUrl('admin');  
   }
 
 }

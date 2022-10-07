@@ -1,19 +1,42 @@
-<div>
-    Add Nurse
-</div>
+
 
 <div class="container">
-    <p id="first-name" class="add-nurse-text">First Name</p>
-    <input type="text" id="first-name-input" class="add-nurse-input" [(ngModel)] = "first_name">
-    <p id="last-name" class="add-nurse-text">Last Name</p>
-    <input type="text" id="last-name-input" class="add-nurse-input" [(ngModel)] = "last_name">
-    <p id="email" class="add-nurse-text">Email</p>
-    <input type="text" id="email-input"  class="add-nurse-input" [(ngModel)] = "email">
-    <p id="phone" class="add-nurse-text">Phone</p>
-    <input type="text" id="phone-input" class="add-nurse-input" [(ngModel)] = "phone">
-    <p id="skills" class="add-nurse-text">Skills/Description</p>
-    <input type="text" id="skills-input" class="add-nurse-input" [(ngModel)] = "skill">
-    <button (click)="addNurse()">
-        Add Nurse
-    </button>
+    <h1>
+        Add/Edit Nurse
+    </h1>
+    <div></div>
+    <div>
+        <p id="first-name" class="add-nurse-text">First Name</p>
+        <input type="text" id="first-name-input" class="add-nurse-input" [(ngModel)] = "first_name">
+    </div>
+
+    <div class="grid-col-2">
+        <p id="last-name" class="add-nurse-text">Last Name</p>
+        <input type="text" id="last-name-input" class="add-nurse-input" [(ngModel)] = "last_name">
+    </div>
+
+    <div>
+        <p id="email" class="add-nurse-text">Email</p>
+        <input type="text" id="email-input"  class="add-nurse-input" [(ngModel)] = "email">
+    </div>
+
+    <div class=" grid-col-2">
+        <p id="phone" class="add-nurse-text">Phone</p>
+        <input type="text" id="phone-input" class="add-nurse-input" [(ngModel)] = "phone">
+    </div>
+
+    <div class="skill-description">
+
+        <p id="skills" class="add-nurse-text">Skills/Description</p>
+        <textarea id="skills-input" class="add-nurse-input" [(ngModel)] = "skill"></textarea>
+    </div>
+
+    <div></div>
+
+    <div class="add-nurse-button">
+        <button (click)="addNurse()">
+            Add Nurse
+        </button>
+    </div>
+
 </div>

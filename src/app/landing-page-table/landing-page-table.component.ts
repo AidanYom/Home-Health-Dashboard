@@ -17,6 +17,9 @@ export interface Nurse {
   'Email': any
 }
 
+const NURSE_DATA: Nurse[] = [];
+
+
 // const NURSE_DATA: Nurse[] = [
 //   {Name: 'Hydrogen', 'Patients Today': 1.0079, 'Phone Number': '123-456-7890'},
 //   {Name: 'Helium', 'Patients Today': 4.0026, 'Phone Number': '123-456-7890'},
@@ -37,6 +40,7 @@ export interface Nurse {
 })
 
 
+
 export class LandingPageTableComponent implements OnInit {
   //future get org from admin log in
   org = "IU Health Laffayette"
@@ -47,6 +51,7 @@ export class LandingPageTableComponent implements OnInit {
   dataSource = new MatTableDataSource<Nurse>([]);
 
   clickedRows = new Set<Nurse>();
+  
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -57,7 +62,7 @@ export class LandingPageTableComponent implements OnInit {
   ngOnInit(): void {
 
     //this.dataSource = NURSE_DATA;
-    const NURSE_DATA: Nurse[] = []
+    //const NURSE_DATA: Nurse[] = []
     console.log("yo");
     this.getNurseService.getNurses(this.org)
     .subscribe(data => {
@@ -82,6 +87,8 @@ export class LandingPageTableComponent implements OnInit {
 
     })
 
+    console.log(NURSE_DATA);
+
   }
 
   onRowClick(row: any) {
@@ -102,3 +109,5 @@ export class LandingPageTableComponent implements OnInit {
 
   
 }
+
+

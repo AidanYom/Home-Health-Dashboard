@@ -1,0 +1,179 @@
+.container {
+    display: grid;
+    font-family: var(--ff-primary);
+    grid-template-columns: 20em 20em 20em;
+    grid-template-areas: 
+    "h1 h1 h1"
+    ". . ."
+    ". . ."
+    ". . ."
+    ". . ."
+    "bottom bottom .";
+    grid-column-gap: 0.3em;
+    grid-row-gap: 0.5em;
+    width: 70%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+h1 {
+    grid-area: h1;
+    font-family: var(--ff-primary);
+    font-size: 40px;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+mat-hint {
+    color: black;
+    font-family: var(--ff-primary);
+    font-size: 1.2em;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+}
+  
+::ng-deep.mat-form-field-underline {
+/*change color of underline*/
+background-color: black !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+/*change color of underline when focused*/
+background-color: black !important;
+}
+
+mat-label {
+    color: black;
+    font-family: var(--ff-primary);
+    font-size: 1.2em;
+}
+
+input {
+    font-family: var(--ff-primary);
+    font-size: 1.1em;
+}
+
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: black!important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+    background: white !important;
+    outline: black;
+    border-radius: 10px;
+    position: relative;
+}
+
+::ng-deep .ng-tns-c89-0 {
+    color: black !important;
+}
+
+
+::ng-deep  .ng-tns-c89-1 {
+    color: black !important;
+}
+
+::ng-deep .ng-tns-c89-2 {
+    color: black !important;
+}
+
+
+::ng-deep .ng-tns-c92-4 {
+    color: black;
+
+}
+
+
+
+mat-select {
+    font-family: var(--ff-primary);
+    font-size: 1.2em;
+}
+
+::ng-deep .mat-select-panel .mat-option {
+    color: black;
+    background-color: white;
+    font-family: var(--ff-primary);
+}
+
+.mat-active {
+    background: #7ace8f !important;
+    color: black !important;
+}
+
+::ng-deep .mat-option:hover {
+    background: #7ace8f !important;
+    color: black;
+}
+
+.add-patient-text {
+    font-family: var(--ff-primary);
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.add-patient-input {
+    font-size: 1.1em;
+    font-family: var(--ff-primary);
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 0.3em;
+    width: 16em;
+    height: 2.8em;
+    -webkit-transition: 0.05s ease;
+    transition: 0.05s ease;
+}
+
+.add-patient-input:focus {
+    outline: none;
+    border: 2px solid #1A1A1A;
+}
+
+#treatment {
+    margin-top: 1em;
+    grid-area: bottom;
+}
+
+#treatment-input {
+    width: 90%;
+    height: 12em;
+    border-radius: 0.5em;
+}
+
+button {
+    font-family: var(--ff-primary);
+    appearance: none;
+    background-color: #21E60F;
+    border: 2px solid #21E60F;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    width: 10em;
+    height: 3em;
+    cursor: pointer;
+    border-radius: 12px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    opacity: 0.9;
+}
+
+button:focus {
+    outline: none;
+    border: 2px solid #20d610;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    opacity: 0.8;
+}
+
+#save-button {
+    justify-self: end;
+    margin-right: 2em;
+}

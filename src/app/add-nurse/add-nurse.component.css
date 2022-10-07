@@ -1,24 +1,99 @@
+
+.container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 20em 20em;
+    grid-template-areas: 
+    ". ."
+    ". ."
+    ". ."
+    "bottom bottom"
+    ". button";
+    width: 70%;
+    margin: 0 auto;
+    max-width: 1000px;
+
+}
+
+h1 {
+    font-family: var(--ff-primary);
+    font-size: 40px;
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+}
+
 input[type="text"] {
     font-size: 16px;
     font-family: var(--ff-primary);
 }
 
 
-
 .add-nurse-text {
     margin: 0;
     font-family: var(--ff-primary);
+    font-size: 1.2em;
 }
 
 .add-nurse-input {
+    font-size: 1.1em;
+    font-family: var(--ff-primary);
+    margin-bottom: 1em;
     border: none;
-    width: 200px;
-    height: 30px;
+    border-radius: 0.3em;
+    width: 16.5em;
+    height: 2.5em;
     -webkit-transition: 0.05s ease;
     transition: 0.05s ease;
+    
 }
 
 .add-nurse-input:focus {
     outline: none;
     border: 2px solid #1A1A1A;
+}
+
+.skill-description {
+    grid-area: bottom;
+}
+
+#skills-input {
+    width: 100%;
+    height: 10em;
+    border-radius: 0.5em;
+}
+
+.add-nurse-button {
+    grid-area: button;
+    justify-self: end;
+}
+
+.grid-col-2 {
+    justify-self: end;
+}
+
+button {
+    font-family: var(--ff-primary);
+    appearance: none;
+    background-color: #21E60F;
+    border: 2px solid #21E60F;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    width: 10em;
+    height: 3em;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-top: 1em;
+}
+
+button:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    opacity: 0.9;
+}
+
+button:focus {
+    outline: none;
+    border: 2px solid #20d610;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    opacity: 0.8;
 }

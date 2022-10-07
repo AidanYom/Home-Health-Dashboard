@@ -22,7 +22,7 @@ export class PatientService {
       "email" : email,
       "phone" : phone,
       "startDate" : startDate,
-      "endData" : endDate,
+      "endDate" : endDate,
       "street" : street,
       "city": city,
       "zip" : zip,
