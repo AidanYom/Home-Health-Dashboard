@@ -27,6 +27,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AddPatientComponent } from './add-patient/add-patient.component';
 import { ForgetPasswordPageComponent } from './forget-password-page/forget-password-page.component';
 import {MatIconModule} from '@angular/material/icon';
+import { MatSelect, MatSelectModule } from '@angular/material/select';
 const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'admin', component: AdminHomepageComponent},
@@ -66,8 +67,8 @@ const routes: Routes = [
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSidenavModule
-
+    MatSidenavModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

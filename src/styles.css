@@ -12,7 +12,7 @@
     --fw-reg: 400;
     --fw-bold: 800;
 
-    --background-color: #F8F8F8;;
+    --background-color: #F5F5F5;;
     background-color: var(--background-color);
 }
 html, body { height: 100%; }
