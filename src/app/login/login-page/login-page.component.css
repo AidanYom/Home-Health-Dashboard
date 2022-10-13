@@ -128,8 +128,6 @@ input[type="text"] {
     .welcome {
         font-size: 64px;
         text-align: center;
-        color: black;
-
     }
     .login {
         max-width: 1000px;
@@ -162,7 +160,6 @@ input[type="text"] {
     .credentials-username, .credentials-password {
         margin-bottom: 0px;
         margin-top: 1em;
-        color: black;
     }
 
     .credentials-username {
