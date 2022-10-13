@@ -22,7 +22,7 @@ export class SidebarNavComponent implements OnInit {
   }
 
   checkRoute(): void {
-    if((this.router.url === '/' || this.router.url === '/login' || this.router.url === '/forgetPassword')) {
+    if((this.router.url === '/' || this.router.url === '/login' || this.router.url === '/forgetPassword' || this.router.url === '/signup')) {
       this.isopened = false;
     } else {
       this.isopened = true;
