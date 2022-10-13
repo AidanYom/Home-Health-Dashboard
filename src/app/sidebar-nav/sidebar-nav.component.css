@@ -30,6 +30,10 @@ mat-sidenav {
     text-align: center;
 }
 
+mat-sidenav-content {
+    color: black;
+}
+
 .id-img {
     float: left;
     height: 50px;
