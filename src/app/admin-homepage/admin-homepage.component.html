@@ -1,7 +1,6 @@
 <body class="admin">
 
     <h1>Home Health Agency</h1>
-
     <section class="snapshot-container">
         <div class="snapshot">
             Daily Snapshot
@@ -18,8 +17,15 @@
     </section>
 
     <app-landing-page-table></app-landing-page-table>
-    <button href=""  (click) = "navigateToAddNurse()" class="login-page-buttons" id="create-account">Add Nurse</button>
-
+    <h2 class = "buttons-header">
+        Add Information
+    </h2>
+    <div class = "add-buttons-container">
+        <button href=""  (click) = "navigateToAddNurse()" class="add-nurse-button" id="create-account">Add Nurse</button>
+        <button href=""  (click) = "navigateToAddPatient()" class="add-patient-button" id="create-account">Add Patient</button>
+    </div>
+    
+    
 
 
 </body>

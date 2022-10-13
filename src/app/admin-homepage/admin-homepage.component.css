@@ -4,7 +4,7 @@
     font-size: 1.5em;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 10em;
+    margin-bottom: 0em;
     background-color: var(--background-color);
 
 }
@@ -61,7 +61,7 @@ h1 {
     font-size: 0.6em;
 }
 
-.login-page-buttons {
+.add-nurse-button {
     font-family: var(--ff-primary);
     appearance: none;
     background-color: #000000;
@@ -69,13 +69,29 @@ h1 {
     color: white;
     font-size: 16px;
     text-decoration: none;
-    width: 100px;
-    height: 30px;
+    width: 120px;
+    height: 40px;
     cursor: pointer;
     border-radius: 12px;
-    margin: auto;
-    margin-top: 20px;
     margin-bottom: 20px;
+    margin-left: 4em;
+    margin-top: 20px;
+}
+
+.add-patient-button {
+    font-family: var(--ff-primary);
+    appearance: none;
+    background-color: #000000;
+    border: 2px solid #1A1A1A;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-left: 2em;
+    margin-top: 20px;
 }
 
 .login-page-buttons:hover {
@@ -89,4 +105,16 @@ h1 {
     border: 2px solid #1A1A1A;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     opacity: 0.8;
+}
+
+.add-buttons-container{
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.buttons-header{
+    font-family: var(--ff-primary);
+    margin-left: 3em;
+    color: #000000;
 }

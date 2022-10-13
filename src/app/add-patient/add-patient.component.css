@@ -132,7 +132,14 @@ mat-select {
     outline: none;
     border: 2px solid #1A1A1A;
 }
+.cancelbutton{
+    font-family: var(--ff-primary);
+    appearance: none;
+    background-color: red;
+    border: 2px solid red;
+    margin-right: 20px;
 
+}
 #treatment {
     margin-top: 1em;
     grid-area: bottom;
@@ -176,4 +183,6 @@ button:focus {
 #save-button {
     justify-self: end;
     margin-right: 2em;
+    display:flex;
+    justify-content: flex-end;
 }
