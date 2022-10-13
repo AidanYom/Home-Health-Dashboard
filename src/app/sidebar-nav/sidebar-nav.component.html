@@ -1,6 +1,6 @@
 <mat-sidenav-container class="global-sidebar">
     
-    <mat-sidenav mode="side" opened>
+    <mat-sidenav mode="side" [(opened)]="isopened">
         <div class= "sidebar-content">
             <!-- hit a service that returns name and role of who is logged in -->
             <div class="sidebar-content-name">
@@ -10,22 +10,22 @@
             </div>
             <div class="sidebar-content">
                 <a routerLink="../admin">
-                    <button>Home</button>
+                    <button class="sidebar">Home</button>
                 </a>
             </div>
             <div class="sidebar-content">
                 <a routerLink="../profpage">
-                    <button>Nurses</button>
+                    <button class="sidebar">Nurses</button>
                 </a>
             </div>
             <div class="sidebar-content">
                 <a routerLink="../admin">
-                    <button>Patients</button>
+                    <button class="sidebar">Patients</button>
                 </a>
             </div>
             <div class="sidebar-content">
                 <a routerLink="../admin">
-                    <button>Settings</button>
+                    <button class="sidebar">Settings</button>
                 </a>
             </div>
             <div class="sidebar-content-logout">
@@ -37,6 +37,6 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-        Main Content
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

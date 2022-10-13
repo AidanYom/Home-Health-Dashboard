@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, Event, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar-nav',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarNavComponent implements OnInit {
 
-  constructor() { }
+  isopened:boolean = false;
+
+  constructor(private router: Router) { 
+    this.router.events.subscribe((event: Event) => {
+      if(event instanceof NavigationEnd){
+        this.checkRoute();
+      }
+    })
+  }
 
   ngOnInit(): void {
+  }
+
+  checkRoute(): void {
+    if((this.router.url === '/' || this.router.url === '/login' || this.router.url === '/forgetPassword')) {
+      this.isopened = false;
+    } else {
+      this.isopened = true;
+    }
   }
 
 }
