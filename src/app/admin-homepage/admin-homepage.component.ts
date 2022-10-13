@@ -23,5 +23,8 @@ export class AdminHomepageComponent implements OnInit {
   navigateToAddNurse() {
     this.router.navigateByUrl('add-nurse');
   }
+  navigateToAddPatient() {
+    this.router.navigateByUrl('add-patient');
+  }
 
 }

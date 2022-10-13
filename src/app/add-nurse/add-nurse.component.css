@@ -63,6 +63,7 @@ input[type="text"] {
 }
 
 .add-nurse-button {
+    display: flex;
     grid-area: button;
     justify-self: end;
 }
@@ -71,7 +72,7 @@ input[type="text"] {
     justify-self: end;
 }
 
-button {
+.addbutton {
     font-family: var(--ff-primary);
     appearance: none;
     background-color: #21E60F;
@@ -86,14 +87,30 @@ button {
     margin-top: 1em;
 }
 
+.cancelbutton{
+    font-family: var(--ff-primary);
+    appearance: none;
+    background-color: red;
+    border: 2px solid red;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    width: 10em;
+    height: 3em;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-top: 1em;
+    margin-right: 1em;
+
+}
 button:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     opacity: 0.9;
 }
 
-button:focus {
+.cancelbutton:focus {
     outline: none;
-    border: 2px solid #20d610;
+    border: 2px solid black;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     opacity: 0.8;
 }

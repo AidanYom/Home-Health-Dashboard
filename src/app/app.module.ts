@@ -28,6 +28,9 @@ import { AddPatientComponent } from './add-patient/add-patient.component';
 import { ForgetPasswordPageComponent } from './forget-password-page/forget-password-page.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
+import {ReactiveFormsModule} from '@angular/forms';
+
+
 const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'admin', component: AdminHomepageComponent},
@@ -68,7 +71,8 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatSidenavModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

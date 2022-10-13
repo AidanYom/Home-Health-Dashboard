@@ -32,4 +32,8 @@ export class AddNurseComponent implements OnInit {
     this.router.navigateByUrl('admin');  
   }
 
+  cancel(){
+    this.router.navigateByUrl('admin');
+  }
+
 }
