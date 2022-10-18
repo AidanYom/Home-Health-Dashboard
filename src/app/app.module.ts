@@ -30,6 +30,10 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
 import {ReactiveFormsModule} from '@angular/forms';
 
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CalendarComponent } from './calendar/calendar.component';
+
 
 const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
@@ -40,7 +44,8 @@ const routes: Routes = [
   {path: 'test-sidenav', component: SidebarNavComponent},
   {path: 'add-nurse', component: AddNurseComponent}, //temporary until we get other components final and can just be passed into other components
   {path: 'forgetPassword', component: ForgetPasswordPageComponent},
-  {path: 'add-patient', component:AddPatientComponent}
+  {path: 'add-patient', component:AddPatientComponent},
+  {path: 'calendar', component:CalendarComponent}
 ]
 
 @NgModule({
@@ -55,6 +60,7 @@ const routes: Routes = [
     AddNurseComponent,
     AddPatientComponent,
     ForgetPasswordPageComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +79,10 @@ const routes: Routes = [
     MatSidenavModule,
     MatSelectModule,
     ReactiveFormsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
