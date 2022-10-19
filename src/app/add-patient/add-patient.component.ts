@@ -53,7 +53,8 @@ export class AddPatientComponent implements OnInit {
   }
 
   addPatient(): void {
-    this.patientService.addPatients(-1, this.first_name, this.last_name, this.email, this.phone, this.dateOfBirth, this.startDate, this.endDate, this.street, this.city, this.zip, this.nurse, this.treatment).subscribe(
+    console.log(this.org);
+    this.patientService.addPatients(-1, this.first_name, this.last_name, this.email, this.phone, this.dateOfBirth, this.startDate, this.endDate, this.street, this.city, this.zip, this.nurse, this.treatment, this.org).subscribe(
       data => {
         if (data.status == 200) {
           console.log("success!")

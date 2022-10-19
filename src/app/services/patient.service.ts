@@ -11,7 +11,7 @@ export class PatientService {
   constructor(private http: HttpClient) {}
 
   addPatients(patientid: number, fname: string, lname: string, email: string, phone: string, dob: string, startDate:string,
-     endDate:string,  street:string, city:string, zip:string, assignedNurse:string, treatmentDesc: string): Observable<any> {
+     endDate:string,  street:string, city:string, zip:string, assignedNurse:string, treatmentDesc: string, org:string): Observable<any> {
 
     const headers = { 'content-type': 'application/json'}
     const body = {
@@ -27,7 +27,8 @@ export class PatientService {
       "city": city,
       "zip" : zip,
       "assignedNurse" : assignedNurse,
-      "treatmentDesc" : treatmentDesc
+      "treatmentDesc" : treatmentDesc,
+      "org" : org
 
 
     }
@@ -36,4 +37,18 @@ export class PatientService {
     return this.http.post(this.baseURL + 'new-patient', body,{'headers':headers})
 
   }
+
+  getPatients(org:string) {
+    const headers = { 'content-type': 'application/json'}
+    const body = {
+      "org" : org,
+
+    }
+
+    return this.http.post(this.baseURL + 'get-patients', body,{'headers':headers})
+
+  }
+
+  
+
 }
