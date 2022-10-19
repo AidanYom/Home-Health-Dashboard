@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {EmailValidator, FormControl, Validators} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,13 @@ export class AuthServiceService {
   role_num: number = 3;
 
   constructor(private http: HttpClient) { }
+
+  requestReset(email:String): Observable<any> {
+    const body = {
+      "email" : email
+    }
+    return this.http.post(`${this.baseURL}/req-reset-password`, body);
+  }
 
   login(email:string, password:string): Observable<any> {
     const headers = { 'content-type': 'application/json'}
@@ -40,6 +48,15 @@ export class AuthServiceService {
     }
     console.log(body)
     return this.http.post(this.baseURL + 'users', body,{'headers':headers})
+  }
+
+  forgetPassword(email:String): Observable<any> {
+    const headers = { 'content-type': 'application/json'}
+    const body = {
+      "email" : email
+    }
+    console.log(body)
+    return this.http.post(this.baseURL + 'users/sendEmail', body,{'headers':headers})
   }
 }
 
