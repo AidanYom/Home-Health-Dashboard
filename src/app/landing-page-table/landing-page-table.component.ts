@@ -62,7 +62,7 @@ export class LandingPageTableComponent implements OnInit {
   ngOnInit(): void {
 
     //this.dataSource = NURSE_DATA;
-    //const NURSE_DATA: Nurse[] = []
+    const NURSE_DATA: Nurse[] = []
     console.log("yo");
     this.getNurseService.getNurses(this.org)
     .subscribe(data => {
