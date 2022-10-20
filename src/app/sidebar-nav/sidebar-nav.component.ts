@@ -26,11 +26,14 @@ export class SidebarNavComponent implements OnInit {
 
   checkRoute(): void {
     this.is_logged_in = this.authService.getIsLoggedIn();
-    if((this.router.url === '/' || this.router.url === '/login' || this.router.url === '/forgetPassword' || this.router.url === '/signup')) {
+    if((this.router.url === '/' || this.router.url === '/login' || this.router.url === '/forgetPassword' || this.router.url === '/signup' )) {
       this.isopened = false;
     } else if(this.is_logged_in) {
       this.isopened = true;
-    } else {
+    } else if (!(this.is_logged_in) && this.router.url === '/calendar') {
+      this.isopened = true;
+    } // REMOVE THIS LATER
+    else {
       this.router.navigate(['/']);
     }
   }
