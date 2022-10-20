@@ -39,5 +39,8 @@ export class ForgetPasswordPageComponent implements OnInit  {
     }
     return this.email.hasError('email') ? 'Not a valid email form' : '';
   }
+  backToLoginClick(){
+    this.router.navigateByUrl('login')
+  }
 
 }
