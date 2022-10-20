@@ -26,5 +26,8 @@ export class AdminHomepageComponent implements OnInit {
   navigateToAddPatient() {
     this.router.navigateByUrl('add-patient');
   }
+  navigateToCalendar() {
+    this.router.navigateByUrl('calendar');
+  }
 
 }
