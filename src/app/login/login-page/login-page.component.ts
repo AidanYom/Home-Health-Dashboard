@@ -43,6 +43,7 @@ export class LoginPageComponent implements OnInit {
           else {
             //go to new component
             console.log("hello")
+            this.authService.setIsLoggedIn(true);
             this.router.navigateByUrl('admin')
           }
           console.log(data)
