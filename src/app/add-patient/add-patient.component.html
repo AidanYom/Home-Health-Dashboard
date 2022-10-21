@@ -88,24 +88,18 @@
             <mat-label>Assigned Nurse</mat-label>
             <mat-select [(ngModel)] = "nurse">
             <mat-option>---</mat-option>
-              <mat-option *ngFor="let nurse of nurses" [value]="nurse['Full Name']">
+                <mat-option *ngFor="let nurse of nurses" [value]="nurse['Full Name']">
                 {{nurse["Full Name"]}}
-              </mat-option>
+                </mat-option>
             </mat-select>
             <mat-hint>Select a Nurse</mat-hint>
-          </mat-form-field>
+            </mat-form-field>
     </div>
 
     <div id="treatment">
         <p id="treatment-text" class="add-patient-text">Treatment Description</p>
         <textarea value="" rows="3" id="treatment-input" class="add-patient-input" [(ngModel)] = "treatment"></textarea>
     </div>
-
-    <div></div>
-    <div></div>
-
-    <div></div>
-
 
     <div class="last-col" id="save-button">
 
@@ -121,3 +115,6 @@
 
 
 </div>
+
+
+

@@ -1,3 +1,4 @@
+
 .container {
     display: grid;
     font-family: var(--ff-primary);
@@ -11,17 +12,18 @@
     "bottom bottom .";
     grid-column-gap: 0.3em;
     grid-row-gap: 0.5em;
-    width: 70%;
-    margin: 0 auto;
     justify-content: center;
+    margin: 0 auto;
+    max-width: 1000px;
+    margin-left: calc(500px - 28%) !important;
 }
 
 h1 {
     grid-area: h1;
     font-family: var(--ff-primary);
     font-size: 40px;
-    margin-top: 1.5em;
-    margin-bottom: 1em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
 }
 
 mat-hint {
@@ -87,6 +89,13 @@ input {
 
 }
 
+::ng-deep .mat-icon-button {
+    color: black !important;
+}
+
+::ng-deep .ng-tns-c92-16 {
+    color:black !important;
+}
 
 
 mat-select {
@@ -101,12 +110,12 @@ mat-select {
 }
 
 .mat-active {
-    background: #7ace8f !important;
+    background: #b6ede9 !important;
     color: black !important;
 }
 
 ::ng-deep .mat-option:hover {
-    background: #7ace8f !important;
+    background: #b6ede9 !important;
     color: black;
 }
 
@@ -146,7 +155,7 @@ mat-select {
 }
 
 #treatment-input {
-    width: 90%;
+    width: 34.5em;
     height: 12em;
     border-radius: 0.5em;
 }
@@ -175,14 +184,12 @@ button:hover {
 
 button:focus {
     outline: none;
-    border: 2px solid #20d610;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     opacity: 0.8;
 }
 
 #save-button {
-    justify-self: end;
+    align-self: end;
     margin-right: 2em;
     display:flex;
-    justify-content: flex-end;
 }

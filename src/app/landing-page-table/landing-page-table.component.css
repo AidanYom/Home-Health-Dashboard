@@ -1,10 +1,9 @@
 .container {
     padding-bottom: 2em;
-    margin-left: 1em;
     margin-right: 1em;
     display: grid;
     width: 100%;
-    grid-template-columns: minmax(70%, 70%);
+    grid-template-columns: minmax(80%, 80%);
     align-items: center;
     justify-content: center;
 }
@@ -87,6 +86,10 @@ mat-paginator {
     color: black;
     font-family: var(--ff-primary);
     
+}
+
+::ng-deep .mat-form-field-wrapper {
+    margin-bottom: -1em;
 }
 
 ::ng-deep .mat-focused .mat-form-field-label {
