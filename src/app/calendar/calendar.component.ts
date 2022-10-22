@@ -15,6 +15,7 @@ export class CalendarComponent implements OnInit {
   view: CalendarView = CalendarView.Week;
   CalendarView = CalendarView;
   closeResult = '';
+  modalRef:any;
   
   start:any;
   end:any;
@@ -38,7 +39,7 @@ export class CalendarComponent implements OnInit {
   }
 
   open(content:any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalRef = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
       
     }, (reason) => {
@@ -78,6 +79,9 @@ export class CalendarComponent implements OnInit {
       ...this.events,
       date_event
     ]
+
+    
+    
   }
 
 
