@@ -64,11 +64,11 @@ export class CalendarComponent implements OnInit {
     const dateObject_end = new Date(timestamp_end);
 
     let date_event: CalendarEvent = {
-      start: startOfDay(dateObject_start),
+      start: (dateObject_start),
       title: 'test',
-      end: endOfDay(dateObject_end)
+      end: (dateObject_end)
     }
-    //console.log(dateObject_start, dateObject_end)
+    console.log(dateObject_start, dateObject_end)
     //this.events.push(date_event);
     //this.events.pop();
     //console.log(date_event);
