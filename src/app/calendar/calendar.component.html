@@ -23,7 +23,10 @@
             </div>
             <div class="modal-body">
                 <!-- <input type="text" class="credentials-username-input" [(ngModel)] = "start"> -->
+                <h1> Title</h1>
+                <input type="text" class="credentials-username-input" [(ngModel)] = "title">
                 <h1> Appointment Date</h1>
+
                 <div class="input-group">
                     <input
                         class="form-control"
@@ -56,6 +59,17 @@
                         </mat-option>
                     </mat-select>
                     <mat-hint>Select a Nurse</mat-hint>
+                </mat-form-field>
+
+                <mat-form-field appearance="standard">
+                    <mat-label>Assigned Patient</mat-label>
+                    <mat-select [(ngModel)] = "patient">
+                    <mat-option>---</mat-option>
+                        <mat-option *ngFor="let patient_name of patient_names" [value]="patient_name">
+                        {{patient_name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-hint>Select a Patient</mat-hint>
                 </mat-form-field>
                 </div>
             </div>    

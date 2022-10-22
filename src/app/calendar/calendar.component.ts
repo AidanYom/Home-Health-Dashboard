@@ -6,6 +6,7 @@ import { endOfDay, startOfDay } from 'date-fns';
 import {NgbModal, ModalDismissReasons, NgbTimepicker, NgbDatepicker} from '@ng-bootstrap/ng-bootstrap';
 
 import { GetNurseService } from '../services/get-nurse.service';
+import { PatientService } from '../services/patient.service';
 import { Nurse } from '../landing-page-table/landing-page-table.component';
 
 @Component({
@@ -31,6 +32,9 @@ export class CalendarComponent implements OnInit {
 	navigation = 'select';
 	showWeekNumbers = false;
 	outsideDays = 'visible';
+  patient_names: string[] = [];
+  patient:string ='';
+  title:string = '';
 
   org = "IU Health Laffayette";
 
@@ -49,7 +53,7 @@ export class CalendarComponent implements OnInit {
       title: 'Second event',
     }
   ]
-  constructor(private modalService: NgbModal, private getNurseService: GetNurseService) { }
+  constructor(private modalService: NgbModal, private getNurseService: GetNurseService, private patientService: PatientService) { }
 
   ngOnInit(): void {
     this.getNurseService.getNurses(this.org)
@@ -68,6 +72,34 @@ export class CalendarComponent implements OnInit {
         this.nurses.unshift(row);
       }
     })
+
+    this.patientService.getPatients(this.org)
+    .subscribe(data => {
+        console.log("PATIENT");
+        console.log(Object.keys(data));
+        
+        console.log(data)
+
+        const temp = (JSON.stringify(data))
+        
+        const data_json = JSON.parse(temp);
+        console.log(data_json.data)
+
+ 
+
+        for (let i = 0; i < data_json.data.length; i++) {
+          const full_name = data_json.data[i].firstName + ' ' + data_json.data[i].lastName;
+          this.patient_names.unshift(full_name);
+          console.log(full_name);
+
+        }
+
+
+
+      
+    })
+      
+
   }
 
   open(content:any) {
@@ -114,7 +146,7 @@ export class CalendarComponent implements OnInit {
 
     let date_event: CalendarEvent = {
       start: (dateObject_start),
-      title: 'test',
+      title: this.title,
       end: (dateObject_end)
     }
     console.log(dateObject_start, dateObject_end)
