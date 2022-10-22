@@ -22,11 +22,45 @@
                 </button>
             </div>
             <div class="modal-body">
-                <input type="text" class="credentials-username-input" [(ngModel)] = "start">
-                <input type="text" class="credentials-username-input" [(ngModel)] = "end">
-
-
-            </div>
+                <!-- <input type="text" class="credentials-username-input" [(ngModel)] = "start"> -->
+                <h1> Appointment Date</h1>
+                <div class="input-group">
+                    <input
+                        class="form-control"
+                        placeholder="yyyy-mm-dd"
+                        name="dp"
+                        [displayMonths]="displayMonths"
+                        [navigation]="navigation"
+                        [outsideDays]="outsideDays"
+                        [showWeekNumbers]="showWeekNumbers"
+                        ngbDatepicker
+                        #d="ngbDatepicker"
+                        [(ngModel)] = "start"
+                    />
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                    
+                </div>
+                <h2> Appointment Timing</h2>
+                <span>
+                    <ngb-timepicker [(ngModel)]="time_start"></ngb-timepicker>
+                    
+                    <ngb-timepicker [(ngModel)]="time_end"></ngb-timepicker>
+                 </span>
+                <div>
+                 <mat-form-field appearance="standard">
+                    <mat-label>Assigned Nurse</mat-label>
+                    <mat-select [(ngModel)] = "nurse">
+                    <mat-option>---</mat-option>
+                        <mat-option *ngFor="let nurse of nurses" [value]="nurse['Full Name']">
+                        {{nurse["Full Name"]}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-hint>Select a Nurse</mat-hint>
+                </mat-form-field>
+                </div>
+            </div>    
+                
+            
             <div class="modal-footer">
                 <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button> -->
                 <button type="button" class="btn btn-outline-dark" (click)="saveChanges()" (click)="modal.close('Save click')">Save Changes</button>
