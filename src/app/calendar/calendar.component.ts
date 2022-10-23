@@ -7,6 +7,7 @@ import {NgbModal, ModalDismissReasons, NgbTimepicker, NgbDatepicker} from '@ng-b
 
 import { GetNurseService } from '../services/get-nurse.service';
 import { PatientService } from '../services/patient.service';
+import { CalendarService } from '../services/calendar.service';
 import { Nurse } from '../landing-page-table/landing-page-table.component';
 
 @Component({
@@ -35,6 +36,7 @@ export class CalendarComponent implements OnInit {
   patient_names: string[] = [];
   patient:string ='';
   title:string = '';
+  reccuring:string = ''
 
   org = "IU Health Laffayette";
 
@@ -43,19 +45,44 @@ export class CalendarComponent implements OnInit {
   
 
   events: CalendarEvent[] = [
-    {
-      start: startOfDay(new Date()),
-      title: 'First event',
-      end: endOfDay(new Date())
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'Second event',
-    }
+    
+    
   ]
-  constructor(private modalService: NgbModal, private getNurseService: GetNurseService, private patientService: PatientService) { }
+  constructor(private calendarService: CalendarService, private modalService: NgbModal, private getNurseService: GetNurseService, private patientService: PatientService) { }
 
   ngOnInit(): void {
+    this.calendarService.getCalendarEvents(this.org)
+    .subscribe(data => {
+      //console.log(data);
+
+      const temp = (JSON.stringify(data))
+        
+      const data_json = JSON.parse(temp);
+      console.log(data_json.data);
+
+      for (let i = 0; i < data_json.data.length; i++) {
+        const timestamp_start = Date.parse(data_json.data[i].time_start);
+        const dateObject_start = new Date(timestamp_start);
+
+        const timestamp_end = Date.parse(data_json.data[i].time_end);
+        const dateObject_end = new Date(timestamp_end);
+
+        
+
+        let date_event: CalendarEvent = {
+          start: (dateObject_start),
+          title: data_json.data[i].title,
+          end: (dateObject_end)
+        }
+        
+        this.events = [
+          ...this.events,
+          date_event
+        ]
+      }
+
+    });
+
     this.getNurseService.getNurses(this.org)
     .subscribe(data => {
       
@@ -75,22 +102,19 @@ export class CalendarComponent implements OnInit {
 
     this.patientService.getPatients(this.org)
     .subscribe(data => {
-        console.log("PATIENT");
-        console.log(Object.keys(data));
         
-        console.log(data)
 
         const temp = (JSON.stringify(data))
         
         const data_json = JSON.parse(temp);
-        console.log(data_json.data)
+        //console.log(data_json.data)
 
  
 
         for (let i = 0; i < data_json.data.length; i++) {
           const full_name = data_json.data[i].firstName + ' ' + data_json.data[i].lastName;
           this.patient_names.unshift(full_name);
-          console.log(full_name);
+          //console.log(full_name);
 
         }
 
@@ -123,7 +147,7 @@ export class CalendarComponent implements OnInit {
 
   saveChanges() {
 
-    console.log(this.nurses)
+    //console.log(this.nurses)
     
 
     const start_string = `${this.start["month"]}/${this.start["day"]}/${this.start["year"]}`
@@ -142,14 +166,14 @@ export class CalendarComponent implements OnInit {
     const timestamp_end = Date.parse(date_time_end);
     const dateObject_end = new Date(timestamp_end);
 
-    console.log(date_time_start, date_time_end);
+    //console.log(date_time_start, date_time_end);
 
     let date_event: CalendarEvent = {
       start: (dateObject_start),
       title: this.title,
       end: (dateObject_end)
     }
-    console.log(dateObject_start, dateObject_end)
+    //console.log(dateObject_start, dateObject_end)
     //this.events.push(date_event);
     //this.events.pop();
     //console.log(date_event);
@@ -159,6 +183,11 @@ export class CalendarComponent implements OnInit {
       ...this.events,
       date_event
     ]
+
+    this.calendarService.addEvent(date_event.title, date_time_start, date_time_end, this.reccuring, this.nurse, this.patient, this.org)
+    .subscribe(data => {
+      //console.log(data);
+    });
 
     
     
