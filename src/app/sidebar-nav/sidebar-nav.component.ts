@@ -30,16 +30,12 @@ export class SidebarNavComponent implements OnInit {
       this.isopened = false;
     } else if(this.is_logged_in) {
       this.isopened = true;
-    } else if (!(this.is_logged_in) && this.router.url === '/calendar') {
-      this.isopened = true;
-    } // REMOVE THIS LATER
-    else {
-      this.router.navigate(['/']);
+    } else {
+      this.router.navigateByUrl('/');
     }
   }
 
   logout(): void {
     this.authService.setIsLoggedIn(false);
   }
-
 }

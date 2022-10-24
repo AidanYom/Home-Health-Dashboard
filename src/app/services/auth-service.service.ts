@@ -9,7 +9,6 @@ import {EmailValidator, FormControl, Validators} from '@angular/forms';
 export class AuthServiceService {
   baseURL: string = "http://localhost:3001/";
   role_num: number = 3;
-  is_logged_in: boolean = false;
 
   constructor(private http: HttpClient) { }
 
@@ -61,11 +60,15 @@ export class AuthServiceService {
   }
 
   getIsLoggedIn(): boolean {
-    return this.is_logged_in;
+    if(localStorage.getItem('is_logged_in') === 'true'){
+      return true;
+    }
+
+    return false;
   }
 
   setIsLoggedIn(status:boolean): void {
-    this.is_logged_in = status;
+    localStorage.setItem('is_logged_in', status.toString());
   }
 
 
