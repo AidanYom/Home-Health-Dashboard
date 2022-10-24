@@ -29,6 +29,7 @@ import { ForgetPasswordPageComponent } from './forget-password-page/forget-passw
 import {MatIconModule} from '@angular/material/icon';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
 import {ReactiveFormsModule} from '@angular/forms';
+import { NgOtpInputModule } from 'ng-otp-input';
 
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
@@ -88,6 +89,7 @@ const routes: Routes = [
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
+    NgOtpInputModule,
     NgbModule
   ],
   providers: [],

@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResetPasswordPageComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
+  pin = '4444'
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+  onOtpChange(value: string){
+    
+    if(value === this.pin){
+      console.log("your pin is correct")
+    } else if (value.length === 4 && this.pin !== value) {
+      console.log("incorrect pin")
+    }
+
   }
+  fillpin(){
 
+  }
 }
