@@ -35,6 +35,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarComponent } from './calendar/calendar.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ResetPasswordPageComponent } from './reset-password-page/reset-password-page.component';
 
 
 const routes: Routes = [
@@ -47,7 +48,8 @@ const routes: Routes = [
   {path: 'add-nurse', component: AddNurseComponent}, //temporary until we get other components final and can just be passed into other components
   {path: 'forgetPassword', component: ForgetPasswordPageComponent},
   {path: 'add-patient', component:AddPatientComponent},
-  {path: 'calendar', component:CalendarComponent}
+  {path: 'calendar', component:CalendarComponent},
+  {path: 'reset-password', component:ResetPasswordPageComponent}
 ]
 
 @NgModule({
@@ -63,6 +65,7 @@ const routes: Routes = [
     AddPatientComponent,
     ForgetPasswordPageComponent,
     CalendarComponent,
+    ResetPasswordPageComponent,
   ],
   imports: [
     BrowserModule,
