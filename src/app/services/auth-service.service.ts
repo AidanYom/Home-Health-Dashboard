@@ -19,6 +19,16 @@ export class AuthServiceService {
     return this.http.post(`${this.baseURL}/req-reset-password`, body);
   }
 
+  resetPassword(email: String, newPassword: String):Observable<any>{
+    const headers = { 'content-type': 'application/json'}
+    const body = {
+      "email" : email,
+      "newPassword": newPassword
+    }
+    console.log(body)
+    return this.http.post(this.baseURL + 'users/resetPassword', body, {'headers':headers});
+  }
+
   login(email:string, password:string): Observable<any> {
     const headers = { 'content-type': 'application/json'}
     const body = {
