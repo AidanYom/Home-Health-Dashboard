@@ -1,26 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
+import { ForgetPasswordPageComponent } from '../forget-password-page/forget-password-page.component';
 @Component({
   selector: 'app-reset-password-page',
   templateUrl: './reset-password-page.component.html',
   styleUrls: ['./reset-password-page.component.css']
 })
+
 export class ResetPasswordPageComponent implements OnInit {
 
   constructor() {}
-  pin = '4444'
+  @Input() email!: String;
+  newPassword!: String
+  confirmPassword!: String
+  passwordLen!: number
 
   ngOnInit(): void { }
-  onOtpChange(value: string){
-    
-    if(value === this.pin){
-      console.log("your pin is correct")
-    } else if (value.length === 4 && this.pin !== value) {
-      console.log("incorrect pin")
-    }
-
+  newP(event: any){
+    this.newPassword = event.target.value
   }
-  fillpin(){
-
+  confirmP(event: any){
+    this.confirmPassword = event.target.value
+  }
+  reset(){
+    if(this.newPassword===undefined){
+      alert("Password Can't Be Blank")
+      console.log("Please type in your new password")
+      return
+    } 
+    if(this.confirmPassword!==this.newPassword){
+      alert("Please Match Confirm Password and New Password")
+    } else{
+      alert("Password Reset Successfull")
+    }
   }
 }
