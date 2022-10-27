@@ -36,6 +36,10 @@ export class NurseProfPageComponent implements OnInit {
     this.expertise = this.row["Expertise"];
 
   }
+
+  viewSched() {
+    this.router.navigateByUrl("/nurse-sched", { state: this.full_name})
+  }
   
 
 }

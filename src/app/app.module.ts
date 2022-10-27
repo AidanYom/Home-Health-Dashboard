@@ -37,6 +37,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ResetPasswordPageComponent } from './reset-password-page/reset-password-page.component';
+import { NurseCalendarComponent } from './nurse-calendar/nurse-calendar.component';
 
 
 const routes: Routes = [
@@ -50,7 +51,8 @@ const routes: Routes = [
   {path: 'forgetPassword', component: ForgetPasswordPageComponent},
   {path: 'add-patient', component:AddPatientComponent},
   {path: 'calendar', component:CalendarComponent},
-  {path: 'reset-password', component:ResetPasswordPageComponent}
+  {path: 'reset-password', component:ResetPasswordPageComponent},
+  {path: 'nurse-sched', component:NurseCalendarComponent}
 ]
 
 @NgModule({
@@ -67,6 +69,7 @@ const routes: Routes = [
     ForgetPasswordPageComponent,
     CalendarComponent,
     ResetPasswordPageComponent,
+    NurseCalendarComponent,
   ],
   imports: [
     BrowserModule,
