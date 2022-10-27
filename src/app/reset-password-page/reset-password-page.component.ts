@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ForgetPasswordPageComponent } from '../forget-password-page/forget-password-page.component';
 import { AuthServiceService } from '../services/auth-service.service';
+import { AccountActivityService } from '../services/account-activity.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-reset-password-page',
   templateUrl: './reset-password-page.component.html',
@@ -8,13 +10,17 @@ import { AuthServiceService } from '../services/auth-service.service';
 })
 
 export class ResetPasswordPageComponent implements OnInit {
-
-  constructor(private authService: AuthServiceService) {}
-  email = "carey920128@gmail.com"
+  constructor(private authService: AuthServiceService, private accService: AccountActivityService, private router: Router) {}
+  email = ""
   newPassword!: String
   confirmPassword!: String
   passwordLen!: number
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.accService.lostEmail.subscribe(lostEmail=>{
+      this.email = lostEmail
+    })
+  }
+
   newP(event: any){
     this.newPassword = event.target.value
   }
@@ -34,11 +40,15 @@ export class ResetPasswordPageComponent implements OnInit {
         console.log(data);
         if(data.status==='200'){
           alert("Password Reset Successfull")
+          this.accService.passwordFound()
         } else{
           alert("Action Failed")
         }
       });
       
     }
+  }
+  backToLoginClick(){
+    this.router.navigateByUrl('login')
   }
 }
