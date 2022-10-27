@@ -38,7 +38,7 @@ export class CalendarComponent implements OnInit {
   title:string = '';
   reccuring:string = ''
 
-  org = "IU Health Laffayette";
+  org = 1;
 
   nurse: string = '';
 

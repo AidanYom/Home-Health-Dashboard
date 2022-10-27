@@ -43,7 +43,7 @@ const NURSE_DATA: Nurse[] = [];
 
 export class LandingPageTableComponent implements OnInit {
   //future get org from admin log in
-  org = "IU Health Laffayette"
+  org = 1;
   constructor(private getNurseService: GetNurseService, private _liveAnnouncer: LiveAnnouncer, private router: Router) { }
 
   displayedColumns: string[] = ['Full Name', 'no_of_patients_today', 'Expertise', 'Phone'];

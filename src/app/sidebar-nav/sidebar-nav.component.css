@@ -13,7 +13,7 @@
 
 .sidebar-content-logout {
     position: fixed center;
-    margin-top: calc(100vh - 350px);
+    margin-top: calc(54vh);
     font-family: var(--ff-primary);
 }
 
