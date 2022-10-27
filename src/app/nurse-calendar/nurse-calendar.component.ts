@@ -68,5 +68,8 @@ export class NurseCalendarComponent implements OnInit {
 
     });
   }
+  setView(view: CalendarView) {
+    this.view = view;
+  }
 
 }
