@@ -11,7 +11,7 @@ export class PatientService {
   constructor(private http: HttpClient) {}
 
   addPatients(patientid: number, fname: string, lname: string, email: string, phone: string, dob: string, startDate:string,
-     endDate:string,  street:string, city:string, zip:string, assignedNurse:string, treatmentDesc: string, org:string): Observable<any> {
+     endDate:string,  street:string, city:string, zip:string, assignedNurse:string, treatmentDesc: string, org:number): Observable<any> {
 
     const headers = { 'content-type': 'application/json'}
     const body = {
@@ -38,7 +38,7 @@ export class PatientService {
 
   }
 
-  getPatients(org:string) {
+  getPatients(org:number) {
     const headers = { 'content-type': 'application/json'}
     const body = {
       "org" : org,

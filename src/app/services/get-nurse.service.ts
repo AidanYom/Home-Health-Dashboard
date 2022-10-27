@@ -12,7 +12,7 @@ export class GetNurseService {
 
   constructor(private http: HttpClient) {}
   
-  getNurses(org:string): Observable<any> {
+  getNurses(org:number): Observable<any> {
     const headers = { 'content-type': 'application/json'}
     const body = {
       "org" : org,
@@ -23,7 +23,7 @@ export class GetNurseService {
 
   }
 
-  addNurses(nurseid: number, fname: string, lname: string, email: string, phone: string, skill: string, org:string): Observable<any> {
+  addNurses(nurseid: number, fname: string, lname: string, email: string, phone: string, skill: string, org:number): Observable<any> {
 
     const headers = { 'content-type': 'application/json'}
     const body = {

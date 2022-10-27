@@ -14,7 +14,7 @@ import {NgbModal, ModalDismissReasons, NgbTimepicker, NgbDatepicker} from '@ng-b
 })
 export class NurseCalendarComponent implements OnInit {
   full_name: any;
-  org = "IU Health Laffayette";
+  org = 1;
 
   viewDate: Date = new Date();
   view: CalendarView = CalendarView.Week;

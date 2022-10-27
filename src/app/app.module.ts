@@ -46,7 +46,6 @@ const routes: Routes = [
   {path: '', component:LoginPageComponent},
   {path: 'signup', component: SignupPageComponent},
   {path: 'profpage', component: NurseProfPageComponent},
-  {path: 'test-sidenav', component: SidebarNavComponent},
   {path: 'add-nurse', component: AddNurseComponent}, //temporary until we get other components final and can just be passed into other components
   {path: 'forgetPassword', component: ForgetPasswordPageComponent},
   {path: 'add-patient', component:AddPatientComponent},

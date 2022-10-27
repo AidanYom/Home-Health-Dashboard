@@ -17,7 +17,7 @@ export class AddPatientComponent implements OnInit {
   constructor(private getNurseService : GetNurseService,private patientService : PatientService, private router : Router) { }
 
   nurses : Nurse[] = [];
-  org = "IU Health Laffayette"
+  org = 1;
 
   first_name = '';
   last_name = '';

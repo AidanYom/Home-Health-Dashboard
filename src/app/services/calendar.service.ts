@@ -11,7 +11,7 @@ export class CalendarService {
   baseURL: string = "http://localhost:3001/";
   constructor(private http: HttpClient) { }
 
-  getCalendarEvents(org:string) {
+  getCalendarEvents(org:number) {
     const headers = { 'content-type': 'application/json'}
     const body = {
       org: org
@@ -21,7 +21,7 @@ export class CalendarService {
 
   }
 
-  addEvent(title:string, date_time_start : string, date_time_end:string, reccuring: string, nurse_name:string, patient_name:string, org: string): Observable<any>{
+  addEvent(title:string, date_time_start : string, date_time_end:string, reccuring: string, nurse_name:string, patient_name:string, org:number): Observable<any>{
     const headers = { 'content-type': 'application/json'}
 
 
@@ -33,7 +33,6 @@ export class CalendarService {
       nurse_name: nurse_name,
       patient_name: patient_name,
       org : org
-
     }
 
     return this.http.post(this.baseURL + 'new-calendar-event', body,{'headers':headers})
