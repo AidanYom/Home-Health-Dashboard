@@ -94,6 +94,17 @@
                         </mat-form-field>
 
                     </div>
+                    <div>
+                    <mat-form-field appearance="standard">
+                        <mat-label>Repeat Event?</mat-label>
+                        <mat-select [(value)]="reccuring">
+                          <mat-option value="DoesNotRepeat"> None</mat-option>
+                          <mat-option value="Weekly">Weekly</mat-option>
+                          <mat-option value="Bi-Weekly">Bi-Weekly</mat-option>
+                          <mat-option value="Daily">Daily</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
 
 
                 </div>

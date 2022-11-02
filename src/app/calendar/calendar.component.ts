@@ -80,7 +80,87 @@ export class CalendarComponent implements OnInit {
           ...this.events,
           date_event
         ]
+        if (data_json.data[i].recurring === 'Weekly') {
+          for (let j = 1; j <= 52; j++) { 
+            let new_date_start = new Date(dateObject_start)
+            new_date_start.setDate(new_date_start.getDate() + (7 * j));
+
+            let new_date_end = new Date(dateObject_end)
+            new_date_end.setDate(new_date_end.getDate() + (7 * j));
+
+            let date_event: CalendarEvent = {
+              start: (new_date_start),
+              title: data_json.data[i].title,
+              end: (new_date_end),
+            }
+
+            this.events = [
+              ...this.events,
+              date_event
+            ]
+
+
+            
+        
+        }
+        }
+
+      if (data_json.data[i].recurring === 'Bi-Weekly') {
+        for (let j = 1; j <= 26; j++) { 
+          let new_date_start = new Date(dateObject_start)
+          new_date_start.setDate(new_date_start.getDate() + (14 * j));
+
+          let new_date_end = new Date(dateObject_end)
+          new_date_end.setDate(new_date_end.getDate() + (14 * j));
+
+          let date_event: CalendarEvent = {
+            start: (new_date_start),
+            title: data_json.data[i].title,
+            end: (new_date_end),
+          }
+
+          this.events = [
+            ...this.events,
+            date_event
+          ]
+
+
+          
+      
+        }
+
+
+        }
+        if (data_json.data[i].recurring === 'Daily') {
+          for (let j = 1; j <= 365; j++) { 
+            let new_date_start = new Date(dateObject_start)
+            new_date_start.setDate(new_date_start.getDate() + (1 * j));
+  
+            let new_date_end = new Date(dateObject_end)
+            new_date_end.setDate(new_date_end.getDate() + (1 * j));
+  
+            let date_event: CalendarEvent = {
+              start: (new_date_start),
+              title: data_json.data[i].title,
+              end: (new_date_end),
+            }
+            if (!(new_date_start.getDay() == 6 || new_date_start.getDay() == 0)) {
+              this.events = [
+                ...this.events,
+                date_event
+              ]
+            }
+            
+  
+  
+            
+        
+          }
+  
+  
+          }
       }
+      
 
     });
 
@@ -115,7 +195,7 @@ export class CalendarComponent implements OnInit {
         for (let i = 0; i < data_json.data.length; i++) {
           const full_name = data_json.data[i].firstName + ' ' + data_json.data[i].lastName;
           this.patient_names.unshift(full_name);
-          //console.log(full_name);
+          
 
         }
 
@@ -182,7 +262,83 @@ export class CalendarComponent implements OnInit {
       ...this.events,
       date_event
     ]
+    //this.reccuring = 'Weekly'
+    console.log(this.reccuring);
+    if (this.reccuring === 'Weekly') {
+      for (let j = 1; j <= 52; j++) { 
+        let new_date_start = new Date(dateObject_start)
+        new_date_start.setDate(new_date_start.getDate() + (7 * j));
 
+        let new_date_end = new Date(dateObject_end)
+        new_date_end.setDate(new_date_end.getDate() + (7 * j));
+
+        let date_event: CalendarEvent = {
+          start: (new_date_start),
+          title: this.title,
+          end: (new_date_end),
+        }
+
+        this.events = [
+          ...this.events,
+          date_event
+        ]
+
+
+        
+    
+    }
+  }
+  if (this.reccuring === 'Bi-Weekly') {
+    for (let j = 1; j <= 26; j++) { 
+      let new_date_start = new Date(dateObject_start)
+      new_date_start.setDate(new_date_start.getDate() + (14 * j));
+
+      let new_date_end = new Date(dateObject_end)
+      new_date_end.setDate(new_date_end.getDate() + (14 * j));
+
+      let date_event: CalendarEvent = {
+        start: (new_date_start),
+        title: this.title,
+        end: (new_date_end),
+      }
+
+      this.events = [
+        ...this.events,
+        date_event
+      ]
+
+
+      
+  
+  }
+}
+if (this.reccuring === 'Daily') {
+  for (let j = 1; j <= 365; j++) { 
+    let new_date_start = new Date(dateObject_start)
+    new_date_start.setDate(new_date_start.getDate() + (1 * j));
+
+    let new_date_end = new Date(dateObject_end)
+    new_date_end.setDate(new_date_end.getDate() + (1 * j));
+
+    let date_event: CalendarEvent = {
+      start: (new_date_start),
+      title: this.title,
+      end: (new_date_end),
+    }
+
+    if (!(new_date_start.getDay() == 6 || new_date_start.getDay() == 0)) {
+      this.events = [
+        ...this.events,
+        date_event
+      ]
+    }
+  }
+
+
+    
+
+
+}
     this.calendarService.addEvent(date_event.title, date_time_start, date_time_end, this.reccuring, this.nurse, this.patient, this.org)
     .subscribe(data => {
       //console.log(data);
