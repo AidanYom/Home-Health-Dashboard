@@ -32,6 +32,10 @@ mat-hint {
     font-size: 1.2em;
 }
 
+::ng-deep .mat-select-value {
+    color: black;
+}
+
 ::ng-deep .mat-focused .mat-form-field-label {
     /*change color of label*/
     color: black !important;

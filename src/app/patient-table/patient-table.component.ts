@@ -88,7 +88,7 @@ export class PatientTableComponent implements OnInit {
 
   onRowClick(row: any) {
     //console.log(row)
-    this.router.navigateByUrl("/profpage", { state: row})
+    this.router.navigateByUrl("/patientprofpage", { state: row})
   }
 
   patientSearch(event : Event) {

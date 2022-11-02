@@ -16,18 +16,18 @@
    
             <ng-template #mymodal let-modal>
             <div class="modal-header">
-                <h4 class="modal-title" id="modal-basic-title">Schedule</h4>
+                <h1 class="modal-title" id="modal-basic-title">Schedule</h1>
                 <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                 <span aria-hidden="true">X</span>
                 </button>
             </div>
             <div class="modal-body">
                 <!-- <input type="text" class="credentials-username-input" [(ngModel)] = "start"> -->
-                <h1> Title</h1>
-                <input type="text" class="credentials-username-input" [(ngModel)] = "title">
-                <h1> Appointment Date</h1>
+                <h2>Title</h2>
+                <input type="text" class="title-input" [(ngModel)] = "title">
+                <h2> Appointment Date</h2>
 
-                <div class="input-group">
+                <!-- <div class="input-group">
                     <input
                         class="form-control"
                         placeholder="yyyy-mm-dd"
@@ -42,42 +42,67 @@
                     />
                     <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
                     
-                </div>
-                <h2> Appointment Timing</h2>
-                <span>
-                    <ngb-timepicker [(ngModel)]="time_start"></ngb-timepicker>
-                    
-                    <ngb-timepicker [(ngModel)]="time_end"></ngb-timepicker>
-                 </span>
-                <div>
-                 <mat-form-field appearance="standard">
-                    <mat-label>Assigned Nurse</mat-label>
-                    <mat-select [(ngModel)] = "nurse">
-                    <mat-option>---</mat-option>
-                        <mat-option *ngFor="let nurse of nurses" [value]="nurse['Full Name']">
-                        {{nurse["Full Name"]}}
-                        </mat-option>
-                    </mat-select>
-                    <mat-hint>Select a Nurse</mat-hint>
-                </mat-form-field>
+                </div> -->
 
-                <mat-form-field appearance="standard">
-                    <mat-label>Assigned Patient</mat-label>
-                    <mat-select [(ngModel)] = "patient">
-                    <mat-option>---</mat-option>
-                        <mat-option *ngFor="let patient_name of patient_names" [value]="patient_name">
-                        {{patient_name}}
-                        </mat-option>
-                    </mat-select>
-                    <mat-hint>Select a Patient</mat-hint>
-                </mat-form-field>
+                <div class="appointment-container">
+                    <mat-form-field appearance="standard">
+                        <mat-label>Date</mat-label>
+                        <input matInput [matDatepicker]="picker2" [(ngModel)] = "startDate">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <h2> Appointment Timing</h2>
+                <div class="timing-container">
+                    <div>
+                        <ngb-timepicker [(ngModel)]="time_start"></ngb-timepicker>
+                        
+                    </div>
+                    <div id="to">To</div>
+                     <div>
+                        <ngb-timepicker [(ngModel)]="time_end"></ngb-timepicker>
+                     </div>
+
+                </div>
+
+
+                <div class="date-container">
+                    <div>
+                        <mat-form-field appearance="standard">
+                            <mat-label>Assigned Nurse</mat-label>
+                            <mat-select [(ngModel)] = "nurse">
+                            <mat-option>---</mat-option>
+                                <mat-option *ngFor="let nurse of nurses" [value]="nurse['Full Name']">
+                                {{nurse["Full Name"]}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-hint>Select a Nurse</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="standard">
+                            <mat-label>Assigned Patient</mat-label>
+                            <mat-select [(ngModel)] = "patient">
+                            <mat-option>---</mat-option>
+                                <mat-option *ngFor="let patient_name of patient_names" [value]="patient_name">
+                                {{patient_name}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-hint>Select a Patient</mat-hint>
+                        </mat-form-field>
+
+                    </div>
+
+
                 </div>
             </div>    
                 
             
             <div class="modal-footer">
                 <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button> -->
-                <button type="button" class="btn btn-outline-dark" (click)="saveChanges()" (click)="modal.close('Save click')">Save Changes</button>
+                <button type="button" id='save' class="close" (click)="saveChanges()" (click)="modal.close('Save click')">Save Changes</button>
             </div>
             </ng-template>
         </div>

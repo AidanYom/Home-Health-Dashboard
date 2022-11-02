@@ -24,6 +24,7 @@ export class CalendarComponent implements OnInit {
   modalRef:any;
   nurses : Nurse[] = [];
   start:any;
+  startDate:any;
   end:any;
 
   time_start:any;
@@ -147,18 +148,16 @@ export class CalendarComponent implements OnInit {
 
   saveChanges() {
 
-    //console.log(this.nurses)
-    
-
-    const start_string = `${this.start["month"]}/${this.start["day"]}/${this.start["year"]}`
-    
+    const start = (this.startDate.getMonth() + 1) + '/' + this.startDate.getDate() + '/' + this.startDate.getFullYear();
 
 
     const time_start_string = `${this.time_start["hour"]}:${this.time_start["minute"]}:${this.time_start["second"]}`;
     const time_end_string = `${this.time_end["hour"]}:${this.time_end["minute"]}:${this.time_end["second"]}`;
 
-    const date_time_start = start_string + ' ' + time_start_string;
-    const date_time_end = start_string + ' ' + time_end_string;
+    console.log(start);
+
+    const date_time_start = start + ' ' + time_start_string;
+    const date_time_end = start + ' ' + time_end_string;
 
     const timestamp_start = Date.parse(date_time_start);
     const dateObject_start = new Date(timestamp_start);
@@ -166,7 +165,7 @@ export class CalendarComponent implements OnInit {
     const timestamp_end = Date.parse(date_time_end);
     const dateObject_end = new Date(timestamp_end);
 
-    //console.log(date_time_start, date_time_end);
+    // console.log(date_time_start, date_time_end);
 
     let date_event: CalendarEvent = {
       start: (dateObject_start),

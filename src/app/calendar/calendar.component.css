@@ -2,6 +2,166 @@
     padding-left: 50px;
 }
 
+h1 {
+    font-family: var(--ff-primary);
+    margin-bottom: 0px;
+    font-size: 30px;
+    padding-top: 0.1em;
+}
+
+h2 {
+    font-family: var(--ff-primary);
+    font-size: 24px;
+    margin-bottom: 0px;
+}
+
+.close {
+    font-family: var(--ff-primary);
+    appearance: none;
+    padding-top: 0.2em;
+    color: black;
+    background-color: transparent;
+    border: 2px solid #1A1A1A;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 0.2em;
+    transition: 0.2s;
+}
+
+.close:hover {
+    color: white;
+    background-color: black;
+}
+
+.title-input {
+    border: none;
+    width: 60%;
+    height: 2.5em;
+    border-radius: 0.4em;
+    margin-bottom: 1.5em;
+    transition: 0.2s;
+}
+
+.title-input:hover {
+    outline: none;
+    border: 1.5px solid #1A1A1A;
+}
+
+.title-input:focus {
+    outline: none;
+    border: 1.5px solid #1A1A1A !important;
+}
+
+
+input {
+    font-size: 16px;
+    font-family: var(--ff-primary);
+}
+
+.modal-body {
+    background-color: var(--background-color);
+}
+
+.modal-header {
+    background-color: var(--background-color);
+    display: grid;
+    grid-template-areas: ". .";
+}
+
+.modal-footer {
+    background-color: var(--background-color)
+}
+
+
+::ng-deep .mat-form-field-flex.ng-tns-c89-1 {
+    padding: 0 !important;
+}
+
+.appointment-container {
+    margin-bottom: 1.5em;
+}
+
+.date-container {
+    display: grid;
+    grid-template-areas: ". .";
+    margin-bottom: 1.5em;
+    font-size: 16px;
+}
+
+.timing-container {
+    display: grid;
+    grid-template-areas: ". . .";
+    margin-bottom: 0.2em;
+    font-size: 16px;
+}
+
+#to {
+    justify-self: start;
+    align-self: center;
+
+}
+
+
+::ng-deep mat-datepicker-toggle {
+    color: black !important;
+}
+
+
 ::ng-deep .cdk-overlay-container {
     z-index: 9999;
+}
+
+mat-hint {
+    color: black;
+    font-family: var(--ff-primary);
+    font-size: 1.2em;
+}
+
+::ng-deep .mat-select-value {
+    font-family: var(--ff-primary);
+    color: black;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+}
+  
+::ng-deep.mat-form-field-underline {
+/*change color of underline*/
+background-color: black !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+/*change color of underline when focused*/
+background-color: black !important;
+}
+
+mat-label {
+    color: black;
+    font-family: var(--ff-primary);
+    font-size: 1.2em;
+}
+
+::ng-deep .mat-select-panel .mat-option {
+    color: black;
+    background-color: white;
+    font-family: var(--ff-primary);
+}
+
+.mat-active {
+    background: #b6ede9 !important;
+    color: black !important;
+}
+
+::ng-deep .mat-option:hover {
+    background: #b6ede9 !important;
+    color: black;
+}
+
+#save {
+    font-size: 18px;
+    padding: 0;
+    padding: 0.5em 0.5em 0.4em 0.5em;
 }
