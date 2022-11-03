@@ -73,7 +73,6 @@ export class AuthServiceService {
     if(localStorage.getItem('is_logged_in') === 'true'){
       return true;
     }
-
     return false;
   }
 

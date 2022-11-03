@@ -17,8 +17,8 @@ export class ForgetPasswordPageComponent implements OnInit  {
   constructor(private authService: AuthServiceService, private router: Router, private accService: AccountActivityService) { }
   #email: string = '';
   email = new FormControl('', [Validators.required, Validators.email]);
-  pin = '444444'
-  sentPin = false;
+  theOTP = '';
+
   ngOnInit(): void {
   }
 
@@ -28,8 +28,7 @@ export class ForgetPasswordPageComponent implements OnInit  {
         console.log(data)
         if (data.status === '200') {
           alert('true')
-          this.sentPin = true;
-          this.accService.requestForget(this.email.value)
+          this.theOTP = data.message;
         }
         else {
           alert("The email does not exist!")
@@ -37,7 +36,7 @@ export class ForgetPasswordPageComponent implements OnInit  {
       }
     )
   }
-  
+
   getErrorMessage() {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
@@ -47,17 +46,25 @@ export class ForgetPasswordPageComponent implements OnInit  {
   backToLoginClick(){
     this.router.navigateByUrl('login')
   }
-  onOtpChange(value: string){
-    if(this.sentPin){
-      if(value === this.pin){
-        console.log("your pin is correct")
+
+  onOtpChange(value: String){
+    if (value.length == 6) {
+      
+      if (value == this.theOTP) {
+        alert("your pin is correct")
         this.router.navigateByUrl('/reset-password')
-      } else if (value.length === 6 && this.pin !== value) {
-        console.log("incorrect pin")
-      } 
-    }
-    
+
+      }
+      else {
+        alert("incorrect pin")
+      }
+    } 
+      
 
   }
-
 }
+
+
+  
+
+
