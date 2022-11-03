@@ -1,6 +1,6 @@
 .container {
     padding-bottom: 2em;
-    margin-right: 1em;
+    margin-right: 0 auto;
     display: grid;
     width: 100%;
     grid-template-columns: minmax(80%, 80%);
