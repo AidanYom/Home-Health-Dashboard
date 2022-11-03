@@ -52,6 +52,7 @@ export class ForgetPasswordPageComponent implements OnInit  {
       
       if (value == this.theOTP) {
         alert("your pin is correct")
+        this.accService.requestForget(this.email.value)
         this.router.navigateByUrl('/reset-password')
 
       }
