@@ -7,9 +7,9 @@
     <div class="credentials">
         <h1 class="welcome"w>Welcome!</h1>
         <p class="credentials-username">Email</p>
-        <input type="text" class="credentials-username-input" [(ngModel)] = "email">
+        <input type="text" class="credentials-username-input" (keyup.enter)="onClick()" [(ngModel)] = "email">
         <p class="credentials-password">Password</p>
-        <input type="password" [ngClass]="{'credentials-password-input':true, 'shake':shakeIt}" [(ngModel)] = "password">
+        <input type="password" (keyup.enter)="onClick()" [ngClass]="{'credentials-password-input':true, 'shake':shakeIt}" [(ngModel)] = "password">
         <div [ngClass]="{'incorrect-password': true, 'incorrect-password-hidden':incorrectPassword, 'shake':shakeIt}">Incorrect Password!</div>
     </div>
     <div></div>

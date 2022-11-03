@@ -109,8 +109,12 @@ mat-paginator {
     color: white !important;
 }
 
-::ng-deep .mat-form-field-underline.ng-star-inserted {
+::ng-deep .search .mat-form-field-underline {
     background-color: black;
+}
+
+::ng-deep .search .mat-form-field-ripple {
+    background-color: black !important;
 }
   
 ::ng-deep.mat-form-field-underline {
