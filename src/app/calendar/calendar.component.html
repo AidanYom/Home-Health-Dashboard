@@ -45,13 +45,30 @@
                 </div> -->
 
                 <div class="appointment-container">
-                    <mat-form-field appearance="standard">
-                        <mat-label>Date</mat-label>
-                        <input matInput [matDatepicker]="picker2" [(ngModel)] = "startDate">
-                        <mat-hint>MM/DD/YYYY</mat-hint>
-                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                        <mat-datepicker #picker2></mat-datepicker>
-                    </mat-form-field>
+                    <div class="date">
+                        <mat-form-field appearance="standard">
+                            <mat-label>Date</mat-label>
+                            <input matInput [matDatepicker]="picker2" [(ngModel)] = "startDate">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+
+                    <div class="reccurence">
+                        <mat-form-field appearance="standard">
+                            <mat-label>Repeat Event?</mat-label>
+                            <mat-select [(value)]="reccuring">
+                            <mat-option value="DoesNotRepeat"> None</mat-option>
+                            <mat-option value="Weekly">Weekly</mat-option>
+                            <mat-option value="Bi-Weekly">Bi-Weekly</mat-option>
+                            <mat-option value="Daily">Daily</mat-option>
+                            </mat-select>
+                            <mat-hint class="hints">Reccurence</mat-hint>
+                        </mat-form-field>
+                    </div>
+
                 </div>
 
                 <h2> Appointment Timing</h2>
@@ -68,7 +85,7 @@
                 </div>
 
 
-                <div class="date-container">
+                <div class="assigned-container">
                     <div>
                         <mat-form-field appearance="standard">
                             <mat-label>Assigned Nurse</mat-label>
@@ -93,17 +110,6 @@
                             <mat-hint>Select a Patient</mat-hint>
                         </mat-form-field>
 
-                    </div>
-                    <div>
-                    <mat-form-field appearance="standard">
-                        <mat-label>Repeat Event?</mat-label>
-                        <mat-select [(value)]="reccuring">
-                          <mat-option value="DoesNotRepeat"> None</mat-option>
-                          <mat-option value="Weekly">Weekly</mat-option>
-                          <mat-option value="Bi-Weekly">Bi-Weekly</mat-option>
-                          <mat-option value="Daily">Daily</mat-option>
-                        </mat-select>
-                      </mat-form-field>
                     </div>
 
 

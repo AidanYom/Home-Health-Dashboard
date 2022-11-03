@@ -40,17 +40,17 @@ h2 {
     height: 2.5em;
     border-radius: 0.4em;
     margin-bottom: 1.5em;
-    transition: 0.2s;
+    transition: 0.1s;
 }
 
 .title-input:hover {
     outline: none;
-    border: 1.5px solid #1A1A1A;
+    border: 2px solid #1A1A1A;
 }
 
 .title-input:focus {
     outline: none;
-    border: 1.5px solid #1A1A1A !important;
+    border: 2px solid #1A1A1A !important;
 }
 
 
@@ -78,11 +78,25 @@ input {
     padding: 0 !important;
 }
 
-.appointment-container {
-    margin-bottom: 1.5em;
+::ng-deep .mat-select-arrow {
+    color: black;
 }
 
-.date-container {
+.appointment-container {
+    display: grid;
+    grid-template-areas: ". .";
+    margin-bottom: 2em;
+}
+
+.hints {
+    font-size: 14px;
+}
+.date {
+    width: 80%;
+    align-self: end !important;
+}
+
+.assigned-container {
     display: grid;
     grid-template-areas: ". .";
     margin-bottom: 1.5em;
@@ -96,10 +110,36 @@ input {
     font-size: 16px;
 }
 
+::ng-deep .btn-link {
+    color: black;
+}
+
+::ng-deep .btn-link:hover {
+    color: black;
+}
+
+::ng-deep .form-control {
+    border: none;
+    transition: 0.1s;
+    font-family: var(--ff-primary);
+}
+
+::ng-deep .form-control:hover {
+    outline: none;
+    border: 2px solid #1A1A1A;
+}
+
+::ng-deep .form-control:focus {
+    box-shadow: none;
+    outline: none;
+    border: 2px solid #1A1A1A;
+}
+
+
 #to {
     justify-self: start;
     align-self: center;
-
+    font-family: var(--ff-primary);
 }
 
 
