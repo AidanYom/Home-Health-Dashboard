@@ -123,5 +123,5 @@
 
 
 
-<mwl-calendar-week-view [viewDate]="viewDate" [events] = "events">
+<mwl-calendar-week-view [viewDate]="viewDate" [events] = "events" (eventClicked)="eventClicked($event)">
 </mwl-calendar-week-view>

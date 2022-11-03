@@ -348,6 +348,10 @@ if (this.reccuring === 'Daily') {
     
   }
 
+  eventClicked({ event }: { event: CalendarEvent }): void {
+    console.log('Event clicked', event);
+  }
+
 
   
 
