@@ -17,7 +17,7 @@ export class ForgetPasswordPageComponent implements OnInit  {
   constructor(private authService: AuthServiceService, private router: Router, private accService: AccountActivityService) { }
   #email: string = '';
   email = new FormControl('', [Validators.required, Validators.email]);
-  pin = '4444'
+  pin = '444444'
   sentPin = false;
   ngOnInit(): void {
   }
@@ -52,7 +52,7 @@ export class ForgetPasswordPageComponent implements OnInit  {
       if(value === this.pin){
         console.log("your pin is correct")
         this.router.navigateByUrl('/reset-password')
-      } else if (value.length === 4 && this.pin !== value) {
+      } else if (value.length === 6 && this.pin !== value) {
         console.log("incorrect pin")
       } 
     }
