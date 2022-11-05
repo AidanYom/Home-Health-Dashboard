@@ -73,7 +73,16 @@ export class CalendarComponent implements OnInit {
         let date_event: CalendarEvent = {
           start: (dateObject_start),
           title: data_json.data[i].title,
-          end: (dateObject_end)
+          end: (dateObject_end),
+          actions: [
+            {
+              label: '<i class="fa fa-trash" aria-hidden="true"></i>',
+              onClick: ({ event }: { event: CalendarEvent }): void => {
+                this.events = this.events.filter((iEvent) => iEvent !== event);
+                console.log('Event deleted', event);
+              },
+            },
+          ],
         }
         
         this.events = [
@@ -91,7 +100,18 @@ export class CalendarComponent implements OnInit {
             let date_event: CalendarEvent = {
               start: (new_date_start),
               title: data_json.data[i].title,
+              actions: [
+                {
+                  label: '<i class="fa fa-trash" aria-hidden="true"></i>',
+                  
+                  onClick: ({ event }: { event: CalendarEvent }): void => {
+                    this.events = this.events.filter((iEvent) => iEvent !== event);
+                    console.log('Event deleted', event);
+                  }
+                },
+              ],
               end: (new_date_end),
+              
             }
 
             this.events = [
@@ -117,6 +137,15 @@ export class CalendarComponent implements OnInit {
             start: (new_date_start),
             title: data_json.data[i].title,
             end: (new_date_end),
+            actions: [
+              {
+                label: '<i class="fa fa-trash" aria-hidden="true"></i>',
+                onClick: ({ event }: { event: CalendarEvent }): void => {
+                  this.events = this.events.filter((iEvent) => iEvent !== event);
+                  console.log('Event deleted', event);
+                },
+              },
+            ],
           }
 
           this.events = [
@@ -143,6 +172,15 @@ export class CalendarComponent implements OnInit {
               start: (new_date_start),
               title: data_json.data[i].title,
               end: (new_date_end),
+              actions: [
+                {
+                  label: '<i class="fa fa-trash" aria-hidden="true"></i>',
+                  onClick: ({ event }: { event: CalendarEvent }): void => {
+                    this.events = this.events.filter((iEvent) => iEvent !== event);
+                    console.log('Event deleted', event);
+                  },
+                },
+              ],
             }
             if (!(new_date_start.getDay() == 6 || new_date_start.getDay() == 0)) {
               this.events = [
@@ -228,6 +266,7 @@ export class CalendarComponent implements OnInit {
 
   saveChanges() {
 
+    this.title = this.title;
     const start = (this.startDate.getMonth() + 1) + '/' + this.startDate.getDate() + '/' + this.startDate.getFullYear();
 
 
@@ -250,7 +289,8 @@ export class CalendarComponent implements OnInit {
     let date_event: CalendarEvent = {
       start: (dateObject_start),
       title: this.title,
-      end: (dateObject_end)
+      end: (dateObject_end),
+      
     }
     //console.log(dateObject_start, dateObject_end)
     //this.events.push(date_event);
