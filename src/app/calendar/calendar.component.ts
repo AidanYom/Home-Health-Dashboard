@@ -80,6 +80,7 @@ export class CalendarComponent implements OnInit {
               onClick: ({ event }: { event: CalendarEvent }): void => {
                 this.events = this.events.filter((iEvent) => iEvent !== event);
                 console.log('Event deleted', event);
+                this.deleteEvent(event);
               },
             },
           ],
@@ -107,6 +108,7 @@ export class CalendarComponent implements OnInit {
                   onClick: ({ event }: { event: CalendarEvent }): void => {
                     this.events = this.events.filter((iEvent) => iEvent !== event);
                     console.log('Event deleted', event);
+                    this.deleteEvent(event);
                   }
                 },
               ],
@@ -143,6 +145,7 @@ export class CalendarComponent implements OnInit {
                 onClick: ({ event }: { event: CalendarEvent }): void => {
                   this.events = this.events.filter((iEvent) => iEvent !== event);
                   console.log('Event deleted', event);
+                  this.deleteEvent(event);
                 },
               },
             ],
@@ -178,6 +181,7 @@ export class CalendarComponent implements OnInit {
                   onClick: ({ event }: { event: CalendarEvent }): void => {
                     this.events = this.events.filter((iEvent) => iEvent !== event);
                     console.log('Event deleted', event);
+                    this.deleteEvent(event);
                   },
                 },
               ],
@@ -264,6 +268,17 @@ export class CalendarComponent implements OnInit {
     }
   }
 
+  makeid(length: number) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+
+
   saveChanges() {
 
     this.title = this.title;
@@ -285,11 +300,21 @@ export class CalendarComponent implements OnInit {
     const dateObject_end = new Date(timestamp_end);
 
     // console.log(date_time_start, date_time_end);
-
+    const id = this.makeid(5); 
     let date_event: CalendarEvent = {
       start: (dateObject_start),
-      title: this.title,
+      title: this.title + ' ' + id,
       end: (dateObject_end),
+      actions: [
+        {
+          label: '<i class="fa fa-trash" aria-hidden="true"></i>',
+          onClick: ({ event }: { event: CalendarEvent }): void => {
+            this.events = this.events.filter((iEvent) => iEvent !== event);
+            console.log('Event deleted', event);
+            this.deleteEvent(event);
+          },
+        },
+      ],
       
     }
     //console.log(dateObject_start, dateObject_end)
@@ -314,8 +339,18 @@ export class CalendarComponent implements OnInit {
 
         let date_event: CalendarEvent = {
           start: (new_date_start),
-          title: this.title,
+          title: this.title + ' ' + id,
           end: (new_date_end),
+          actions: [
+            {
+              label: '<i class="fa fa-trash" aria-hidden="true"></i>',
+              onClick: ({ event }: { event: CalendarEvent }): void => {
+                this.events = this.events.filter((iEvent) => iEvent !== event);
+                console.log('Event deleted', event);
+                this.deleteEvent(event);
+              },
+            },
+          ],
         }
 
         this.events = [
@@ -338,8 +373,18 @@ export class CalendarComponent implements OnInit {
 
       let date_event: CalendarEvent = {
         start: (new_date_start),
-        title: this.title,
+        title: this.title + ' ' + id,
         end: (new_date_end),
+        actions: [
+          {
+            label: '<i class="fa fa-trash" aria-hidden="true"></i>',
+            onClick: ({ event }: { event: CalendarEvent }): void => {
+              this.events = this.events.filter((iEvent) => iEvent !== event);
+              console.log('Event deleted', event);
+              this.deleteEvent(event);
+            },
+          },
+        ],
       }
 
       this.events = [
@@ -362,8 +407,19 @@ if (this.reccuring === 'Daily') {
 
     let date_event: CalendarEvent = {
       start: (new_date_start),
-      title: this.title,
+      title: this.title + ' ' + id,
       end: (new_date_end),
+      actions: [
+        {
+          label: '<i class="fa fa-trash" aria-hidden="true"></i>',
+          onClick: ({ event }: { event: CalendarEvent }): void => {
+            this.events = this.events.filter((iEvent) => iEvent !== event);
+            console.log('Event deleted', event);
+            this.deleteEvent(event);
+            
+          },
+        },
+      ],
     }
 
     if (!(new_date_start.getDay() == 6 || new_date_start.getDay() == 0)) {
@@ -371,6 +427,7 @@ if (this.reccuring === 'Daily') {
         ...this.events,
         date_event
       ]
+      
     }
   }
 
@@ -392,6 +449,14 @@ if (this.reccuring === 'Daily') {
     console.log('Event clicked', event);
   }
 
+  deleteEvent(event: CalendarEvent) {
+    console.log("inDeleteEvent")
+    console.log(event.title);
+    this.calendarService.deleteEvent(event.title)
+    .subscribe(data => {
+      //console.log(data);
+    });
+  }
 
   
 

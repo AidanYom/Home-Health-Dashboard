@@ -38,6 +38,20 @@ export class CalendarService {
     return this.http.post(this.baseURL + 'new-calendar-event', body,{'headers':headers})
   }
 
+  deleteEvent(title: string): Observable<any> {
+    console.log('inDeleteeeee')
+    const headers = { 'content-type': 'application/json'}
+
+
+    const body = {
+      title: title
+    }
+
+    return this.http.post(this.baseURL + 'delete-calendar-event', body,{'headers':headers})
+
+  }
+
+
   
 
 
