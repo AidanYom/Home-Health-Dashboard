@@ -7,15 +7,15 @@ export class AccountActivityService {
   noRequest = ""
   lostEmail!: BehaviorSubject<string>;
   username!: BehaviorSubject<string>;
-  role!: BehaviorSubject<string>
+  role!: BehaviorSubject<number>
   constructor() {
     this.lostEmail = new BehaviorSubject(this.noRequest);
     this.username = new BehaviorSubject("");
-    this.role = new BehaviorSubject("");
+    this.role = new BehaviorSubject(0);
   }
-  setLoginRole(role:string){
+  setLoginRole(role:number){
     this.role.next(role);
-    localStorage.setItem("role", role)
+    localStorage.setItem("role", role.toString())
   }
   getLoginRole(){
     return localStorage.getItem("role")

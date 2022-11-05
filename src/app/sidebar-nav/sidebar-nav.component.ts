@@ -31,10 +31,13 @@ export class SidebarNavComponent implements OnInit {
     })
 
     accService.role.subscribe(role =>{
-      if(role === "1"){
+      console.log(role)
+      if(role === 1){
+        this.role = "admin"
+      } else if(role === 2){
         this.role = "nurse"
       } else{
-        this.role = "admin"
+        this.role = "guest"
       }
     })
   }
@@ -42,9 +45,11 @@ export class SidebarNavComponent implements OnInit {
   ngOnInit(): void {
     this.username = this.accService.getLoginName()
     if(this.accService.getLoginRole()==="1"){
+      this.role = "admin"
+    } else if(this.accService.getLoginRole()==="2"){
       this.role = "nurse"
     } else{
-      this.role = "admin"
+      this.role = "guest"
     }
   }
 
@@ -62,6 +67,6 @@ export class SidebarNavComponent implements OnInit {
   logout(): void {
     this.authService.setIsLoggedIn(false);
     this.accService.setLoginName("");
-    this.accService.setLoginRole("-1");
+    this.accService.setLoginRole(-1);
   }
 }
