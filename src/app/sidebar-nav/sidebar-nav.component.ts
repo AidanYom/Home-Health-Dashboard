@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Event, NavigationEnd } from '@angular/router';
+import * as e from 'express';
 import { AppComponent } from '../app.component';
+import { AccountActivityService } from '../services/account-activity.service';
 import { AuthServiceService } from '../services/auth-service.service';
 
 @Component({
@@ -12,16 +14,38 @@ export class SidebarNavComponent implements OnInit {
 
   isopened:boolean = false;
   is_logged_in: boolean = false;
-
-  constructor(private router: Router, private authService: AuthServiceService) { 
+  username: any;
+  role: any;
+  firstname: any;
+  lastname: any;
+  constructor(private router: Router, private authService: AuthServiceService, private accService: AccountActivityService) { 
+    console.log("update")
     this.router.events.subscribe((event: Event) => {
       if(event instanceof NavigationEnd){
         this.checkRoute();
       }
     })
+
+    accService.username.subscribe((username) =>{
+      this.username = username
+    })
+
+    accService.role.subscribe(role =>{
+      if(role === "1"){
+        this.role = "nurse"
+      } else{
+        this.role = "admin"
+      }
+    })
   }
 
   ngOnInit(): void {
+    this.username = this.accService.getLoginName()
+    if(this.accService.getLoginRole()==="1"){
+      this.role = "nurse"
+    } else{
+      this.role = "admin"
+    }
   }
 
   checkRoute(): void {
@@ -37,5 +61,7 @@ export class SidebarNavComponent implements OnInit {
 
   logout(): void {
     this.authService.setIsLoggedIn(false);
+    this.accService.setLoginName("");
+    this.accService.setLoginRole("-1");
   }
 }

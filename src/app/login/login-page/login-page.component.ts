@@ -2,6 +2,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { AccountActivityService } from 'src/app/services/account-activity.service';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -10,7 +11,7 @@ import { RouterModule } from '@angular/router';
 export class LoginPageComponent implements OnInit {
 
   @ViewChild('login') login! :ElementRef;
-  constructor(private authService: AuthServiceService, private router: Router) { }
+  constructor(private authService: AuthServiceService, private router: Router, private accService: AccountActivityService) { }
   email: string = '';
   password: string = '';
   shakeIt = false;
@@ -45,6 +46,10 @@ export class LoginPageComponent implements OnInit {
             console.log("hello")
             this.authService.setIsLoggedIn(true);
             this.router.navigateByUrl('admin')
+            var firstname:string = data.firstname
+            var lastname:string = data.lastname
+            var fullname:string = firstname.concat(" "+ lastname)
+            this.accService.setLoginName(fullname)
           }
           console.log(data)
         })
