@@ -80,6 +80,13 @@ export class AuthServiceService {
     localStorage.setItem('is_logged_in', status.toString());
   }
 
+  getOrgName(orgId:number): Observable<any> {
+    const headers = { 'content-type': 'application/json'};
+    const body = {
+      "orgId": orgId
+    }
+    return this.http.post(this.baseURL + 'get-orgname', body, {'headers':headers})
+  }
 
 }
 

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -8,10 +9,12 @@ export class AccountActivityService {
   lostEmail!: BehaviorSubject<string>;
   username!: BehaviorSubject<string>;
   role!: BehaviorSubject<number>
+  org!: BehaviorSubject<string>
   constructor() {
     this.lostEmail = new BehaviorSubject(this.noRequest);
     this.username = new BehaviorSubject("");
     this.role = new BehaviorSubject(0);
+    this.org = new BehaviorSubject(this.noRequest);
   }
   setLoginRole(role:number){
     this.role.next(role);
@@ -32,5 +35,12 @@ export class AccountActivityService {
   }
   passwordFound(){
     this.lostEmail.next(this.noRequest)
+  }
+  setOrgName(orgName:string){
+    this.org.next(orgName);
+    localStorage.setItem("orgName", orgName);
+  }
+  getOrgName(){
+    return localStorage.getItem("orgName");
   }
 }

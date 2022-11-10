@@ -3,6 +3,7 @@ import { NgModel } from '@angular/forms';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { Router } from '@angular/router';
+import { AccountActivityService } from '../services/account-activity.service';
 
 @Component({
   selector: 'app-admin-homepage',
@@ -15,7 +16,7 @@ import { Router } from '@angular/router';
 
 export class AdminHomepageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private accService: AccountActivityService) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +29,12 @@ export class AdminHomepageComponent implements OnInit {
   }
   navigateToCalendar() {
     this.router.navigateByUrl('calendar');
+  }
+  getOrgName() {
+    if(this.accService.getOrgName()){
+      return this.accService.getOrgName();
+    }
+    return "";
   }
 
 }

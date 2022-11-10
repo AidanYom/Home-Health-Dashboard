@@ -51,6 +51,10 @@ export class LoginPageComponent implements OnInit {
             var fullname:string = firstname.concat(" "+ lastname)
             this.accService.setLoginName(fullname)
             this.accService.setLoginRole(data.role)
+            this.authService.getOrgName(data.orgId)
+              .subscribe(data => {
+                this.accService.setOrgName(data.data[0].orgName);
+              })
           }
           console.log(data)
         })
