@@ -59,12 +59,37 @@ export class NurseCalendarComponent implements OnInit {
             end: (dateObject_end)
           }
           
-          this.events = [
-            ...this.events,
-            date_event
-          ]
+          // this.events = [
+          //   ...this.events,
+          //   date_event
+          // ]
+
+          if (data_json.data[i].recurring === 'DoesNotRepeat') {
+
+            let new_date_start = new Date(dateObject_start)
+
+            let new_date_end = new Date(dateObject_end)
+            let date_event: CalendarEvent = {
+              start: (new_date_start),
+              title: data_json.data[i].title,
+              end: (new_date_end),
+              color: {
+                primary: '#008ee0',
+                secondary: '#dcf9fa',
+              }
+
+            }
+
+            this.events = [
+              ...this.events,
+              date_event
+            ]
+
+            
+          }
+
           if (data_json.data[i].recurring === 'Weekly') {
-            for (let j = 1; j <= 52; j++) { 
+            for (let j = 0; j <= 52; j++) { 
               let new_date_start = new Date(dateObject_start)
               new_date_start.setDate(new_date_start.getDate() + (7 * j));
   
@@ -75,6 +100,10 @@ export class NurseCalendarComponent implements OnInit {
                 start: (new_date_start),
                 title: data_json.data[i].title,
                 end: (new_date_end),
+                color: {
+                  primary: '#f20707',
+                  secondary: '#f7cdcd',
+                }
               }
   
               this.events = [
@@ -89,7 +118,7 @@ export class NurseCalendarComponent implements OnInit {
           }
   
         if (data_json.data[i].recurring === 'Bi-Weekly') {
-          for (let j = 1; j <= 26; j++) { 
+          for (let j = 0; j <= 26; j++) { 
             let new_date_start = new Date(dateObject_start)
             new_date_start.setDate(new_date_start.getDate() + (14 * j));
   
@@ -100,6 +129,10 @@ export class NurseCalendarComponent implements OnInit {
               start: (new_date_start),
               title: data_json.data[i].title,
               end: (new_date_end),
+              color: {
+                primary: '#f5b402',
+                secondary: '#faf7be',
+              }
             }
   
             this.events = [
@@ -115,7 +148,7 @@ export class NurseCalendarComponent implements OnInit {
   
           }
           if (data_json.data[i].recurring === 'Daily') {
-            for (let j = 1; j <= 365; j++) { 
+            for (let j = 0; j <= 365; j++) { 
               let new_date_start = new Date(dateObject_start)
               new_date_start.setDate(new_date_start.getDate() + (1 * j));
     
@@ -126,6 +159,10 @@ export class NurseCalendarComponent implements OnInit {
                 start: (new_date_start),
                 title: data_json.data[i].title,
                 end: (new_date_end),
+                color: {
+                  primary: '#0ced1f',
+                  secondary: '#dcfade',
+                }
               }
               if (!(new_date_start.getDay() == 6 || new_date_start.getDay() == 0)) {
                 this.events = [
