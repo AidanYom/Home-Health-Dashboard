@@ -78,3 +78,7 @@ mat-sidenav-content {
 a:visited, a:active, a:link{
     text-decoration: none;
 }
+
+.sidebar-content-logout {
+    margin-top: 275%;
+}
