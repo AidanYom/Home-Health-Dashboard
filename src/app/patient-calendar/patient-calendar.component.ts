@@ -7,13 +7,13 @@ import { CalendarService } from '../services/calendar.service';
 import { CalendarComponent } from '../calendar/calendar.component';
 
 import {NgbModal, ModalDismissReasons, NgbTimepicker, NgbDatepicker} from '@ng-bootstrap/ng-bootstrap';
-
 @Component({
-  selector: 'app-nurse-calendar',
-  templateUrl: './nurse-calendar.component.html',
-  styleUrls: ['./nurse-calendar.component.css']
+  selector: 'app-patient-calendar',
+  templateUrl: './patient-calendar.component.html',
+  styleUrls: ['./patient-calendar.component.css']
 })
-export class NurseCalendarComponent implements OnInit {
+export class PatientCalendarComponent implements OnInit {
+
   full_name: any;
   org = 1;
 
@@ -45,7 +45,7 @@ export class NurseCalendarComponent implements OnInit {
       console.log(data_json.data);
 
       for (let i = 0; i < data_json.data.length; i++) {
-        if (data_json.data[i].nurse_name === this.full_name) {
+        if (data_json.data[i].patient_name === this.full_name) {
           const timestamp_start = Date.parse(data_json.data[i].time_start);
           const dateObject_start = new Date(timestamp_start);
 
@@ -236,5 +236,4 @@ export class NurseCalendarComponent implements OnInit {
 
     return startFinal + " - " + endFinal;
   }
-
 }

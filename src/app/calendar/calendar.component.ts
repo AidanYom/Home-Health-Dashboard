@@ -94,9 +94,7 @@ export class CalendarComponent implements OnInit {
             let date_event: CalendarEvent = {
               id: data_json.data[i].event_id,
               start: (new_date_start),
-              title: data_json.data[i].title + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end) + "\n" + "Nurse: " +
-              data_json.data[i].nurse_name + "\n" + "Patient: " +
-              data_json.data[i].patient_name,
+              title: data_json.data[i].title + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end),
               actions: [
                 {
                   label: '<i class="fa fa-trash" aria-hidden="true"></i>',
@@ -138,9 +136,7 @@ export class CalendarComponent implements OnInit {
               let date_event: CalendarEvent = {
                 id: data_json.data[i].event_id,
                 start: (new_date_start),
-                title: data_json.data[i].title + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end) + "\n" + "Nurse: " +
-              data_json.data[i].nurse_name + "\n" + "Patient: " +
-              data_json.data[i].patient_name,
+                title: data_json.data[i].title + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end),
                 actions: [
                   {
                     label: '<i class="fa fa-trash" aria-hidden="true"></i>',
@@ -185,9 +181,7 @@ export class CalendarComponent implements OnInit {
               let date_event: CalendarEvent = {
                 id: data_json.data[i].event_id,
                 start: (new_date_start),
-                title: data_json.data[i].title + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end) + "\n" + "Nurse: " +
-              data_json.data[i].nurse_name + "\n" + "Patient: " +
-              data_json.data[i].patient_name,
+                title: data_json.data[i].title + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end),
                 end: (new_date_end),
                 actions: [
                   {
@@ -231,9 +225,7 @@ export class CalendarComponent implements OnInit {
               let date_event: CalendarEvent = {
                 id: data_json.data[i].event_id,
                 start: (new_date_start),
-                title: data_json.data[i].title + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end) + "\n" + "Nurse: " +
-              data_json.data[i].nurse_name + "\n" + "Patient: " +
-              data_json.data[i].patient_name,
+                title: data_json.data[i].title + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end),
                 end: (new_date_end),
                 actions: [
                   {
