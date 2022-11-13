@@ -6,12 +6,12 @@
             Daily Snapshot
         </div>
         <div class="snapshot-block">
-            X nurses working today
-            <span class="box-inner">X total</span>
+            {{uniqueNursesToday}} nurses working today
+            <span class="box-inner">{{nurseLength}} total</span>
         </div>
         <div class="snapshot-block" id="patients-block">
-            X patients treated today
-            <span class="box-inner">X total</span>
+            {{eventsFinished}} patients treated today
+            <span class="box-inner">{{numEventsToday}} total</span>
         </div>
         
     </section>

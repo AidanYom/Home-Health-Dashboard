@@ -5,6 +5,7 @@ import {LiveAnnouncer} from '@angular/cdk/a11y';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
+import { AdminHomepageComponent } from '../admin-homepage/admin-homepage.component';
 
 
 export interface Nurse {
@@ -20,19 +21,6 @@ export interface Nurse {
 const NURSE_DATA: Nurse[] = [];
 
 
-// const NURSE_DATA: Nurse[] = [
-//   {Name: 'Hydrogen', 'Patients Today': 1.0079, 'Phone Number': '123-456-7890'},
-//   {Name: 'Helium', 'Patients Today': 4.0026, 'Phone Number': '123-456-7890'},
-//   {Name: 'Lithium', 'Patients Today': 6.941, 'Phone Number': '123-456-7890'},
-//   {Name: 'Beryllium', 'Patients Today': 9.0122, 'Phone Number': '123-456-7890'},
-//   {Name: 'Boron', 'Patients Today': 10.811, 'Phone Number': '123-456-7890'},
-//   {Name: 'Carbon', 'Patients Today': 12.0107, 'Phone Number': '123-456-7890'},
-//   {Name: 'Nitrogen', 'Patients Today': 14.0067, 'Phone Number': '123-456-7890'},
-//   {Name: 'Oxygen', 'Patients Today': 15.9994, 'Phone Number': '123-456-7890'},
-//   {Name: 'Fluorine', 'Patients Today': 18.9984, 'Phone Number': '123-456-7890'},
-//   { Name: 'Neon', 'Patients Today': 20.1797, 'Phone Number': '123-456-7890'},
-// ];
-
 @Component({
   selector: 'app-landing-page-table',
   templateUrl: './landing-page-table.component.html',
@@ -44,7 +32,7 @@ const NURSE_DATA: Nurse[] = [];
 export class LandingPageTableComponent implements OnInit {
   //future get org from admin log in
   org = 1;
-  constructor(private getNurseService: GetNurseService, private _liveAnnouncer: LiveAnnouncer, private router: Router) { }
+  constructor(private getNurseService: GetNurseService, private _liveAnnouncer: LiveAnnouncer, private router: Router, private adminComponent : AdminHomepageComponent) { }
 
   displayedColumns: string[] = ['Full Name', 'no_of_patients_today', 'Expertise', 'Phone'];
 
@@ -60,6 +48,9 @@ export class LandingPageTableComponent implements OnInit {
   sort!: MatSort;
 
   ngOnInit(): void {
+    let map = this.adminComponent.allNurses;
+    console.log("Test");
+    console.log(map);
 
     //this.dataSource = NURSE_DATA;
     const NURSE_DATA: Nurse[] = []
@@ -70,7 +61,7 @@ export class LandingPageTableComponent implements OnInit {
       for (let i = 0; i < data.data.length; i++) {
         const row: Nurse = {
           'Full Name' : data.data[i].firstName + ' ' + data.data[i].lastName,
-          'no_of_patients_today' : 4,
+          'no_of_patients_today' : map.get(data.data[i].firstName + ' ' + data.data[i].lastName),
           'Expertise' : data.data[i].skillDescription,
           'Phone': data.data[i].phone,
           'Email': data.data[i].email,

@@ -41,6 +41,7 @@ import { NurseCalendarComponent } from './nurse-calendar/nurse-calendar.componen
 import { PatientTableComponent } from './patient-table/patient-table.component';
 import { PatientProfPageComponent } from './patient-prof-page/patient-prof-page.component';
 import { NurseTableComponent } from './nurse-table/nurse-table.component';
+import { PatientCalendarComponent } from './patient-calendar/patient-calendar.component';
 
 
 const routes: Routes = [
@@ -58,6 +59,7 @@ const routes: Routes = [
   {path: 'patients', component:PatientTableComponent},
   {path: 'patientprofpage', component: PatientProfPageComponent},
   {path: 'nurses', component: NurseTableComponent},
+  {path: 'patient-sched', component: PatientCalendarComponent},
 ]
 
 @NgModule({
@@ -78,6 +80,7 @@ const routes: Routes = [
     PatientTableComponent,
     PatientProfPageComponent,
     NurseTableComponent,
+    PatientCalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,7 +106,7 @@ const routes: Routes = [
     NgOtpInputModule,
     NgbModule
   ],
-  providers: [],
+  providers: [LandingPageTableComponent, AdminHomepageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

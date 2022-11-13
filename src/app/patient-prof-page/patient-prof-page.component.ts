@@ -30,7 +30,7 @@ export class PatientProfPageComponent implements OnInit {
   }
 
   viewSched() {
-    this.router.navigateByUrl("/nurse-sched", { state: this.full_name})
+    this.router.navigateByUrl("/patient-sched", { state: this.full_name})
   }
   
 
