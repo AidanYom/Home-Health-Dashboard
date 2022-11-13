@@ -205,3 +205,8 @@ mat-label {
     padding: 0;
     padding: 0.5em 0.5em 0.4em 0.5em;
 }
+
+::ng-deep .cal-event {
+    white-space: pre-wrap !important;
+    line-height: 1.3em !important;
+}
