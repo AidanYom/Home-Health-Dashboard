@@ -87,16 +87,16 @@ export class CalendarComponent implements OnInit {
           const dateObject_end = new Date(timestamp_end);
 
           if (data_json.data[i].recurring === 'DoesNotRepeat' || data_json.data[i].recurring === '') {
-            const splitTitle = data_json.data[i].title.split(" ");
-            splitTitle.pop();
-            const eventTitle = splitTitle.join(" ");
-
+            
             let new_date_start = new Date(dateObject_start)
 
             let new_date_end = new Date(dateObject_end)
             let date_event: CalendarEvent = {
+              id: data_json.data[i].event_id,
               start: (new_date_start),
-              title: eventTitle + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end),
+              title: data_json.data[i].title + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end) + "\n" + "Nurse: " +
+              data_json.data[i].nurse_name + "\n" + "Patient: " +
+              data_json.data[i].patient_name,
               actions: [
                 {
                   label: '<i class="fa fa-trash" aria-hidden="true"></i>',
@@ -136,8 +136,11 @@ export class CalendarComponent implements OnInit {
               const eventTitle = splitTitle.join(" ");
 
               let date_event: CalendarEvent = {
+                id: data_json.data[i].event_id,
                 start: (new_date_start),
-                title: eventTitle + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end),
+                title: data_json.data[i].title + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end) + "\n" + "Nurse: " +
+              data_json.data[i].nurse_name + "\n" + "Patient: " +
+              data_json.data[i].patient_name,
                 actions: [
                   {
                     label: '<i class="fa fa-trash" aria-hidden="true"></i>',
@@ -180,8 +183,11 @@ export class CalendarComponent implements OnInit {
               const eventTitle = splitTitle.join(" ");
 
               let date_event: CalendarEvent = {
+                id: data_json.data[i].event_id,
                 start: (new_date_start),
-                title: eventTitle + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end),
+                title: data_json.data[i].title + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end) + "\n" + "Nurse: " +
+              data_json.data[i].nurse_name + "\n" + "Patient: " +
+              data_json.data[i].patient_name,
                 end: (new_date_end),
                 actions: [
                   {
@@ -223,8 +229,11 @@ export class CalendarComponent implements OnInit {
               new_date_end.setDate(new_date_end.getDate() + j);
 
               let date_event: CalendarEvent = {
+                id: data_json.data[i].event_id,
                 start: (new_date_start),
-                title: eventTitle + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end),
+                title: data_json.data[i].title + "\n" + this.getTime(data_json.data[i].time_start, data_json.data[i].time_end) + "\n" + "Nurse: " +
+              data_json.data[i].nurse_name + "\n" + "Patient: " +
+              data_json.data[i].patient_name,
                 end: (new_date_end),
                 actions: [
                   {
@@ -342,8 +351,9 @@ export class CalendarComponent implements OnInit {
     // console.log(date_time_start, date_time_end);
     const id = this.makeid(5);
     let date_event: CalendarEvent = {
+      id: id,
       start: (dateObject_start),
-      title: this.title + ' ' + id,
+      title: this.title,
       end: (dateObject_end),
       actions: [
         {
@@ -374,6 +384,7 @@ export class CalendarComponent implements OnInit {
 
       let new_date_end = new Date(dateObject_end)
       let date_event: CalendarEvent = {
+        id: id,
         start: (new_date_start),
         title: this.title + "\n" + this.getTime(date_time_start, date_time_end),
         actions: [
@@ -414,6 +425,7 @@ export class CalendarComponent implements OnInit {
         new_date_end.setDate(new_date_end.getDate() + (7 * j));
 
         let date_event: CalendarEvent = {
+          id: id,
           start: (new_date_start),
           title: this.title + "\n" + this.getTime(date_time_start, date_time_end),
           end: (new_date_end),
@@ -452,6 +464,7 @@ export class CalendarComponent implements OnInit {
         new_date_end.setDate(new_date_end.getDate() + (14 * j));
 
         let date_event: CalendarEvent = {
+          id: id,
           start: (new_date_start),
           title: this.title + "\n" + this.getTime(date_time_start, date_time_end),
           end: (new_date_end),
@@ -463,6 +476,7 @@ export class CalendarComponent implements OnInit {
                 console.log('Event deleted', event);
                 this.deleteEvent(event);
               },
+              
             },
           ],
           color: {
@@ -490,6 +504,7 @@ export class CalendarComponent implements OnInit {
         new_date_end.setDate(new_date_end.getDate() + (1 * j));
 
         let date_event: CalendarEvent = {
+          id: id,
           start: (new_date_start),
           title: this.title + "\n" + this.getTime(date_time_start, date_time_end),
           end: (new_date_end),
@@ -532,7 +547,7 @@ export class CalendarComponent implements OnInit {
 
 
     // date_event.title = eventTitle + id;
-    this.calendarService.addEvent(date_event.title, date_time_start, date_time_end, this.reccuring, this.nurse, this.patient, this.org)
+    this.calendarService.addEvent(date_event.id ,date_event.title, date_time_start, date_time_end, this.reccuring, this.nurse, this.patient, this.org)
       .subscribe(data => {
         console.log(data);
       });
@@ -548,7 +563,7 @@ export class CalendarComponent implements OnInit {
   deleteEvent(event: CalendarEvent) {
     console.log("inDeleteEvent")
     console.log(event.title);
-    this.calendarService.deleteEvent(event.title)
+    this.calendarService.deleteEvent(event.id)
       .subscribe(data => {
         //console.log(data);
       });
@@ -569,7 +584,10 @@ export class CalendarComponent implements OnInit {
       startFinal = String(startHour) + ":" + startMinute + "pm"
     } else if (startHour == 0) {
       startHour += 12;
-      startFinal = String(startHour) + ":" + startMinute + "am"
+      startFinal = String(startHour) + ":" + startMinute + "am" 
+    }
+    else if (startHour == 12){
+      startFinal = String(startHour) + ":" + startMinute + "pm"
     } else {
       startFinal = String(startHour) + ":" + startMinute + "am"
     }
@@ -589,7 +607,9 @@ export class CalendarComponent implements OnInit {
     } else if (endHour == 0) {
       endHour += 12;
       endFinal = String(endHour) + ":" + endMinute + "am"
-    } else {
+    } else if (endHour == 12){
+      endFinal = String(endHour) + ":" + endMinute + "pm"
+    }else {
       endFinal = String(endHour) + ":" + endMinute + "am"
     }
 

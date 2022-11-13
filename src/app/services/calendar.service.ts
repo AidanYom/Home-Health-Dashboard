@@ -21,11 +21,12 @@ export class CalendarService {
 
   }
 
-  addEvent(title:string, date_time_start : string, date_time_end:string, reccuring: string, nurse_name:string, patient_name:string, org:number): Observable<any>{
+  addEvent(id: any, title:string, date_time_start : string, date_time_end:string, reccuring: string, nurse_name:string, patient_name:string, org:number): Observable<any>{
     const headers = { 'content-type': 'application/json'}
 
 
     const body = {
+      id: id,
       title: title,
       date_time_start: date_time_start,
       date_time_end: date_time_end,
@@ -38,13 +39,13 @@ export class CalendarService {
     return this.http.post(this.baseURL + 'new-calendar-event', body,{'headers':headers})
   }
 
-  deleteEvent(title: string): Observable<any> {
+  deleteEvent(id: any): Observable<any> {
     console.log('inDeleteeeee')
     const headers = { 'content-type': 'application/json'}
 
 
     const body = {
-      title: title
+      id: id
     }
 
     return this.http.post(this.baseURL + 'delete-calendar-event', body,{'headers':headers})
