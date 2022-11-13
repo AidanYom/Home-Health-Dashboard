@@ -106,7 +106,7 @@ const routes: Routes = [
     NgOtpInputModule,
     NgbModule
   ],
-  providers: [LandingPageTableComponent, AdminHomepageComponent],
+  providers: [LandingPageTableComponent, AdminHomepageComponent, NurseTableComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
