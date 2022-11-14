@@ -1,46 +1,58 @@
-<mat-sidenav-container class="global-sidebar">
-    <mat-sidenav mode="side" [(opened)]="isopened">
-        <div class= "sidebar-content">
-            <!-- hit a service that returns name and role of who is logged in -->
-            <div class="sidebar-content-name">
-                <img src="assets/img/id-card.png" class="id-img">
-                <h2 class="name"><b>{{username}}</b></h2>
-                <h3 class="name"><b>{{role}}</b></h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <mat-sidenav-container class="global-sidebar">
+        <mat-sidenav mode="side" [(opened)]="isopened">
+            <div class= "sidebar-content">
+                <!-- hit a service that returns name and role of who is logged in -->
+                <div class="sidebar-content-name">
+                    <img src="assets/img/id-card.png" class="id-img">
+                    <h2 class="name"><b>{{username}}</b></h2>
+                    <h3 class="name"><b>{{role}}</b></h3>
+                </div>
+                <div class="sidebar-content">
+                    <a routerLink="../admin">
+                        <button class="sidebar">Home</button>
+                    </a>
+                </div>
+                <div class="sidebar-content">
+                    <a routerLink="../nurses">
+                        <button class="sidebar">Nurses</button>
+                    </a>
+                </div>
+                <div class="sidebar-content">
+                    <a routerLink="../patients">
+                        <button class="sidebar">Patients</button>
+                    </a>
+                </div>
+                <div class="sidebar-content">
+                    <a routerLink="../calendar">
+                        <button class="sidebar">Calendar</button>
+                    </a>
+                </div>
+                <div class="sidebar-content">
+                    <a routerLink="../admin">
+                        <button class="sidebar">Settings</button>
+                    </a>
+                </div>
+                <div class="sidebar-content-logout">
+                    <a routerLink="../login" (click)="logout()">
+                        Logout
+                    </a>
+                </div>
             </div>
-            <div class="sidebar-content">
-                <a routerLink="../admin">
-                    <button class="sidebar">Home</button>
-                </a>
-            </div>
-            <div class="sidebar-content">
-                <a routerLink="../nurses">
-                    <button class="sidebar">Nurses</button>
-                </a>
-            </div>
-            <div class="sidebar-content">
-                <a routerLink="../patients">
-                    <button class="sidebar">Patients</button>
-                </a>
-            </div>
-            <div class="sidebar-content">
-                <a routerLink="../calendar">
-                    <button class="sidebar">Calendar</button>
-                </a>
-            </div>
-            <div class="sidebar-content">
-                <a routerLink="../admin">
-                    <button class="sidebar">Settings</button>
-                </a>
-            </div>
-            <div class="sidebar-content-logout">
-                <a routerLink="../login" (click)="logout()">
-                    Logout
-                </a>
-            </div>
-        </div>
-    </mat-sidenav>
+        </mat-sidenav>
+    
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</body>
+</html>
 
-    <mat-sidenav-content>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
-</mat-sidenav-container>
