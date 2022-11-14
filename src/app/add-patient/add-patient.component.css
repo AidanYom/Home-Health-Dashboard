@@ -15,7 +15,7 @@
     justify-content: center;
     margin: 0 auto;
     max-width: 1000px;
-    margin-left: calc(500px - 28%) !important;
+    /* margin-left: calc(500px - 28%) !important; */
 }
 
 h1 {

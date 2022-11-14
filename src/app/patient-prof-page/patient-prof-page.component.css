@@ -11,8 +11,12 @@ body {
     overflow: hidden;
 }
 
+.container {
+    margin: 0 auto;
+}
+
 .card {
-    width: 120%;
+    width: 100%;
     font-family: var(--ff-primary);
     border-radius: 5px;
     -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
@@ -136,4 +140,23 @@ p {
     margin: 0 10px 0 0;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+}
+
+.sched-button {
+    font-family: var(--ff-primary);
+    appearance: none;
+    padding-top: 0.2em;
+    color: black;
+    background-color: transparent;
+    border: 2px solid #1A1A1A;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 0.2em;
+    transition: 0.2s;
+}
+
+.sched-button:hover {
+    color: white;
+    background-color: black;
 }

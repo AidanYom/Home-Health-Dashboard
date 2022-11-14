@@ -2,6 +2,15 @@
     padding-left: 50px;
 }
 
+.btn {
+    font-family: var(--ff-primary);
+}
+
+.btn-group {
+    float: left;
+    padding-left: 4.5em;
+}
+
 h1 {
     font-family: var(--ff-primary);
     margin-bottom: 0px;

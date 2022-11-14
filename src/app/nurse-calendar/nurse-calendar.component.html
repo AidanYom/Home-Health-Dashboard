@@ -7,12 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <p class="name">
-        &#128512; {{full_name}}'s Schedule
-    </p>
+
     <div class="row text-center">
+
     
         <div class="col-md-4">
+            <h1 class="name">
+                {{full_name}}'s Schedule
+            </h1>
+
             <div class="btn-group">
                 <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate">
                     Previous
