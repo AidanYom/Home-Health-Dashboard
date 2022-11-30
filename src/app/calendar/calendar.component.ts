@@ -323,6 +323,9 @@ export class CalendarComponent implements OnInit {
   saveChanges() {
 
     this.title = this.title;
+    if (this.title.length == 0) {
+      this.title = "N: " + this.nurse + " P: " + this.patient;
+    }
     const start = (this.startDate.getMonth() + 1) + '/' + this.startDate.getDate() + '/' + this.startDate.getFullYear();
 
 
@@ -531,14 +534,7 @@ export class CalendarComponent implements OnInit {
 
 
     }
-    // let eventTitleSplit = date_event.title.split(" ");
-    // for (let i = 0; i < 3; i++) {
-    //   eventTitleSplit.pop();
-    // }
-    // let eventTitle = eventTitleSplit.join(" ");
 
-
-    // date_event.title = eventTitle + id;
     this.calendarService.addEvent(date_event.id ,date_event.title, date_time_start, date_time_end, this.reccuring, this.nurse, this.patient, this.org)
       .subscribe(data => {
         console.log(data);
