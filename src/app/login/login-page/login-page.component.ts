@@ -24,6 +24,8 @@ export class LoginPageComponent implements OnInit {
       // console.log(this.email)
       // console.log(this.password)
 
+      var e = this.email;
+
       this.authService.login(this.email, this.password)
         .subscribe(data => {
           if (data.status === '400') { //incorrect credentials
@@ -51,6 +53,7 @@ export class LoginPageComponent implements OnInit {
             var fullname:string = firstname.concat(" "+ lastname)
             this.accService.setLoginName(fullname)
             this.accService.setLoginRole(data.role)
+            this.accService.setEmail(e)
             this.authService.getOrgName(data.orgId)
               .subscribe(data => {
                 this.accService.setOrgName(data.data[0].orgName);

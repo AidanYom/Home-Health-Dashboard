@@ -42,6 +42,7 @@ import { PatientTableComponent } from './patient-table/patient-table.component';
 import { PatientProfPageComponent } from './patient-prof-page/patient-prof-page.component';
 import { NurseTableComponent } from './nurse-table/nurse-table.component';
 import { PatientCalendarComponent } from './patient-calendar/patient-calendar.component';
+import { SettingComponent } from './setting/setting.component';
 
 
 const routes: Routes = [
@@ -60,6 +61,7 @@ const routes: Routes = [
   {path: 'patientprofpage', component: PatientProfPageComponent},
   {path: 'nurses', component: NurseTableComponent},
   {path: 'patient-sched', component: PatientCalendarComponent},
+  {path: 'setting', component: SettingComponent}
 ]
 
 @NgModule({
@@ -81,6 +83,7 @@ const routes: Routes = [
     PatientProfPageComponent,
     NurseTableComponent,
     PatientCalendarComponent,
+    SettingComponent,
   ],
   imports: [
     BrowserModule,

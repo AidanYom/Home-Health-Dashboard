@@ -64,10 +64,12 @@ export class SidebarNavComponent implements OnInit {
     }
   }
 
+
   logout(): void {
     this.authService.setIsLoggedIn(false);
     this.accService.setLoginName("");
     this.accService.setLoginRole(-1);
     this.accService.setOrgName("");
   }
+
 }

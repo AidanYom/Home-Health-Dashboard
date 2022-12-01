@@ -8,6 +8,7 @@ export class AccountActivityService {
   noRequest = ""
   lostEmail!: BehaviorSubject<string>;
   username!: BehaviorSubject<string>;
+  email!: BehaviorSubject<string>;
   role!: BehaviorSubject<number>
   org!: BehaviorSubject<string>
   constructor() {
@@ -15,6 +16,14 @@ export class AccountActivityService {
     this.username = new BehaviorSubject("");
     this.role = new BehaviorSubject(0);
     this.org = new BehaviorSubject(this.noRequest);
+    this.email = new BehaviorSubject("");
+  }
+  setEmail(email:string){
+    //this.email.next(email);
+    localStorage.setItem("email", email)
+  }
+  getEmail() {
+    return localStorage.getItem("email")
   }
   setLoginRole(role:number){
     this.role.next(role);
@@ -24,7 +33,7 @@ export class AccountActivityService {
     return localStorage.getItem("role")
   }
   setLoginName(username:string){
-    this.username.next(username);
+    //this.username.next(username);
     localStorage.setItem("username", username)
   }
   getLoginName(){
