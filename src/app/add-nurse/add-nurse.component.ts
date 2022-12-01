@@ -21,11 +21,11 @@ export class AddNurseComponent implements OnInit {
   }
 
   addNurse(): void {
-    console.log(this.skill)
+    // console.log(this.skill)
     this.getNurseService.addNurses(-1, this.first_name, this.last_name, this.email, this.phone, this.skill, 1).subscribe(
       data => {
         if (data.status == 200) {
-          console.log("success!")
+          // console.log("success!")
         }
       }
     )

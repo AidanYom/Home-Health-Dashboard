@@ -31,7 +31,7 @@ export class NurseCalendarComponent implements OnInit {
   end:any;
   constructor(public activatedRoute: ActivatedRoute, private router: Router, private calendarService: CalendarService) { 
     this.full_name = (this.router.getCurrentNavigation()!.extras.state);
-    console.log(this.full_name);
+    // console.log(this.full_name);
   }
 
   ngOnInit(): void {
@@ -42,7 +42,7 @@ export class NurseCalendarComponent implements OnInit {
       const temp = (JSON.stringify(data))
         
       const data_json = JSON.parse(temp);
-      console.log(data_json.data);
+      // console.log(data_json.data);
 
       for (let i = 0; i < data_json.data.length; i++) {
         if (data_json.data[i].nurse_name === this.full_name) {

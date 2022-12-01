@@ -25,7 +25,7 @@ export class ForgetPasswordPageComponent implements OnInit  {
   onClick() {
     this.authService.forgetPassword(this.email.value).subscribe(
       data => {
-        console.log(data)
+        // console.log(data)
         if (data.status === '200') {
           alert('true')
           this.theOTP = data.message;

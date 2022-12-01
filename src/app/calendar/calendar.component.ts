@@ -72,12 +72,12 @@ export class CalendarComponent implements OnInit {
 
     this.calendarService.getCalendarEvents(this.org)
       .subscribe(data => {
-        //console.log(data);
+        // console.log(data);
 
         const temp = (JSON.stringify(data))
 
         const data_json = JSON.parse(temp);
-        console.log(data_json.data);
+        // console.log(data_json.data);
 
         for (let i = 0; i < data_json.data.length; i++) {
           const timestamp_start = Date.parse(data_json.data[i].time_start);
@@ -101,7 +101,7 @@ export class CalendarComponent implements OnInit {
 
                   onClick: ({ event }: { event: CalendarEvent }): void => {
                     this.events = this.events.filter((iEvent) => iEvent !== event);
-                    console.log('Event deleted', event);
+                    // console.log('Event deleted', event);
                     this.deleteEvent(event);
                   }
                 },
@@ -143,7 +143,7 @@ export class CalendarComponent implements OnInit {
 
                     onClick: ({ event }: { event: CalendarEvent }): void => {
                       this.events = this.events.filter((iEvent) => iEvent !== event);
-                      console.log('Event deleted', event);
+                      // console.log('Event deleted', event);
                       this.deleteEvent(event);
                     }
                   },
@@ -188,7 +188,7 @@ export class CalendarComponent implements OnInit {
                     label: '<i class="fa fa-trash" aria-hidden="true"></i>',
                     onClick: ({ event }: { event: CalendarEvent }): void => {
                       this.events = this.events.filter((iEvent) => iEvent !== event);
-                      console.log('Event deleted', event);
+                      // console.log('Event deleted', event);
                       this.deleteEvent(event);
                     },
                   },
@@ -232,7 +232,7 @@ export class CalendarComponent implements OnInit {
                     label: '<i class="fa fa-trash" aria-hidden="true"></i>',
                     onClick: ({ event }: { event: CalendarEvent }): void => {
                       this.events = this.events.filter((iEvent) => iEvent !== event);
-                      console.log('Event deleted', event);
+                      // console.log('Event deleted', event);
                       this.deleteEvent(event);
                     },
                   },
@@ -271,7 +271,7 @@ export class CalendarComponent implements OnInit {
         const temp = (JSON.stringify(data))
 
         const data_json = JSON.parse(temp);
-        //console.log(data_json.data)
+        // console.log(data_json.data)
 
 
 
@@ -332,7 +332,7 @@ export class CalendarComponent implements OnInit {
     const time_start_string = `${this.time_start["hour"]}:${this.time_start["minute"]}:${this.time_start["second"]}`;
     const time_end_string = `${this.time_end["hour"]}:${this.time_end["minute"]}:${this.time_end["second"]}`;
 
-    console.log(start);
+    // console.log(start);
 
     const date_time_start = start + ' ' + time_start_string;
     const date_time_end = start + ' ' + time_end_string;
@@ -355,18 +355,18 @@ export class CalendarComponent implements OnInit {
           label: '<i class="fa fa-trash" aria-hidden="true"></i>',
           onClick: ({ event }: { event: CalendarEvent }): void => {
             this.events = this.events.filter((iEvent) => iEvent !== event);
-            console.log('Event deleted', event);
+            // console.log('Event deleted', event);
             this.deleteEvent(event);
           },
         },
       ],
 
     }
-    //console.log(dateObject_start, dateObject_end)
+    // console.log(dateObject_start, dateObject_end)
     //this.events.push(date_event);
     //this.events.pop();
-    //console.log(date_event);
-    //console.log(this.events);
+    // console.log(date_event);
+    // console.log(this.events);
 
     // this.events = [
     //   ...this.events,
@@ -388,7 +388,7 @@ export class CalendarComponent implements OnInit {
 
             onClick: ({ event }: { event: CalendarEvent }): void => {
               this.events = this.events.filter((iEvent) => iEvent !== event);
-              console.log('Event deleted', event);
+              // console.log('Event deleted', event);
               this.deleteEvent(event);
             }
           },
@@ -409,7 +409,7 @@ export class CalendarComponent implements OnInit {
 
     }
     //this.reccuring = 'Weekly'
-    console.log(this.reccuring);
+    // console.log(this.reccuring);
     if (this.reccuring === 'Weekly') {
 
       for (let j = 0; j <= 52; j++) {
@@ -429,7 +429,7 @@ export class CalendarComponent implements OnInit {
               label: '<i class="fa fa-trash" aria-hidden="true"></i>',
               onClick: ({ event }: { event: CalendarEvent }): void => {
                 this.events = this.events.filter((iEvent) => iEvent !== event);
-                console.log('Event deleted', event);
+                // console.log('Event deleted', event);
                 this.deleteEvent(event);
               },
             },
@@ -468,7 +468,7 @@ export class CalendarComponent implements OnInit {
               label: '<i class="fa fa-trash" aria-hidden="true"></i>',
               onClick: ({ event }: { event: CalendarEvent }): void => {
                 this.events = this.events.filter((iEvent) => iEvent !== event);
-                console.log('Event deleted', event);
+                // console.log('Event deleted', event);
                 this.deleteEvent(event);
               },
               
@@ -508,7 +508,7 @@ export class CalendarComponent implements OnInit {
               label: '<i class="fa fa-trash" aria-hidden="true"></i>',
               onClick: ({ event }: { event: CalendarEvent }): void => {
                 this.events = this.events.filter((iEvent) => iEvent !== event);
-                console.log('Event deleted', event);
+                // console.log('Event deleted', event);
                 this.deleteEvent(event);
 
               },
@@ -537,7 +537,7 @@ export class CalendarComponent implements OnInit {
 
     this.calendarService.addEvent(date_event.id ,date_event.title, date_time_start, date_time_end, this.reccuring, this.nurse, this.patient, this.org)
       .subscribe(data => {
-        console.log(data);
+        // console.log(data);
       });
 
 
@@ -545,15 +545,15 @@ export class CalendarComponent implements OnInit {
   }
 
   eventClicked({ event }: { event: CalendarEvent }): void {
-    console.log('Event clicked', event);
+    // console.log('Event clicked', event);
   }
 
   deleteEvent(event: CalendarEvent) {
-    console.log("inDeleteEvent")
-    console.log(event.title);
+    // console.log("inDeleteEvent")
+    // console.log(event.title);
     this.calendarService.deleteEvent(event.id)
       .subscribe(data => {
-        //console.log(data);
+        // console.log(data);
       });
   }
 

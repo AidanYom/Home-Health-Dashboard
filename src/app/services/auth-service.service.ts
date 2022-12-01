@@ -25,7 +25,7 @@ export class AuthServiceService {
       "email" : email,
       "newPassword": newPassword
     }
-    console.log(body)
+    // console.log(body)
     return this.http.post(this.baseURL + 'users/resetPassword', body, {'headers':headers});
   }
 
@@ -35,7 +35,7 @@ export class AuthServiceService {
       "email" : email,
       "password": password
     }
-    console.log(body)
+    // console.log(body)
     return this.http.post(this.baseURL + 'users/login', body,{'headers':headers})
   }
 
@@ -56,7 +56,7 @@ export class AuthServiceService {
       "fname" : fname,
       "role" : this.role_num
     }
-    console.log(body)
+    // console.log(body)
     return this.http.post(this.baseURL + 'users', body,{'headers':headers})
   }
 
@@ -65,7 +65,7 @@ export class AuthServiceService {
     const body = {
       "email" : email
     }
-    console.log(body)
+    // console.log(body)
     return this.http.post(this.baseURL + 'users/sendEmail', body,{'headers':headers})
   }
 
@@ -95,6 +95,6 @@ export class AuthServiceService {
 addPerson(person:Person): Observable<any> {
   const headers = { 'content-type': 'application/json'}  
   const body=JSON.stringify(person);
-  console.log(body)
+  // console.log(body)
   return this.http.post(this.baseURL + 'people', body,{'headers':headers})
 } */

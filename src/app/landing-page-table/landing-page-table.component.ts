@@ -49,12 +49,12 @@ export class LandingPageTableComponent implements OnInit {
 
   ngOnInit(): void {
     let map = this.adminComponent.allNurses;
-    console.log("Test");
-    console.log(map);
+    // console.log("Test");
+    // console.log(map);
 
     //this.dataSource = NURSE_DATA;
     const NURSE_DATA: Nurse[] = []
-    console.log("yo");
+    // console.log("yo");
     this.getNurseService.getNurses(this.org)
     .subscribe(data => {
       
@@ -78,12 +78,12 @@ export class LandingPageTableComponent implements OnInit {
 
     })
 
-    console.log(NURSE_DATA);
+    // console.log(NURSE_DATA);
 
   }
 
   onRowClick(row: any) {
-    //console.log(row)
+    // console.log(row)
     this.router.navigateByUrl("/profpage", { state: row})
   }
 

@@ -47,7 +47,7 @@ export class NurseTableComponent implements OnInit {
   ngOnInit(): void {
     //this.dataSource = NURSE_DATA;
     const NURSE_DATA: Nurse[] = []
-    console.log("yo");
+    // console.log("yo");
 
     this.getNurseService.getNurses(this.org)
     .subscribe(data => {
@@ -70,12 +70,12 @@ export class NurseTableComponent implements OnInit {
 
     this.calendarService.getCalendarEvents(this.org)
     .subscribe(data => {
-      //console.log(data);
+      // console.log(data);
 
       const temp = (JSON.stringify(data))
 
       const data_json = JSON.parse(temp);
-      console.log(data_json.data);
+      // console.log(data_json.data);
 
       for (let i = 0; i < data_json.data.length; i++) {
         const timestamp_start = Date.parse(data_json.data[i].time_start);
@@ -99,7 +99,7 @@ export class NurseTableComponent implements OnInit {
 
                 onClick: ({ event }: { event: CalendarEvent }): void => {
                   this.events = this.events.filter((iEvent) => iEvent !== event);
-                  console.log('Event deleted', event);
+                  // console.log('Event deleted', event);
                   this.deleteEvent(event);
                 }
               },
@@ -141,7 +141,7 @@ export class NurseTableComponent implements OnInit {
 
                   onClick: ({ event }: { event: CalendarEvent }): void => {
                     this.events = this.events.filter((iEvent) => iEvent !== event);
-                    console.log('Event deleted', event);
+                    // console.log('Event deleted', event);
                     this.deleteEvent(event);
                   }
                 },
@@ -186,7 +186,7 @@ export class NurseTableComponent implements OnInit {
                   label: '<i class="fa fa-trash" aria-hidden="true"></i>',
                   onClick: ({ event }: { event: CalendarEvent }): void => {
                     this.events = this.events.filter((iEvent) => iEvent !== event);
-                    console.log('Event deleted', event);
+                    // console.log('Event deleted', event);
                     this.deleteEvent(event);
                   },
                 },
@@ -230,7 +230,7 @@ export class NurseTableComponent implements OnInit {
                   label: '<i class="fa fa-trash" aria-hidden="true"></i>',
                   onClick: ({ event }: { event: CalendarEvent }): void => {
                     this.events = this.events.filter((iEvent) => iEvent !== event);
-                    console.log('Event deleted', event);
+                    // console.log('Event deleted', event);
                     this.deleteEvent(event);
                   },
                 },
@@ -256,7 +256,7 @@ export class NurseTableComponent implements OnInit {
 
         }
       }
-      console.log(this.events);
+      // console.log(this.events);
       let today = new Date();
 
       for (let i = 0; i < this.events.length; i++) {
@@ -265,14 +265,14 @@ export class NurseTableComponent implements OnInit {
           this.allNurses.set(this.events[i].id, this.allNurses.get(this.events[i].id) + 1);
         }
       }
-      console.log(this.allNurses);
+      // console.log(this.allNurses);
 
 
 
     });
 
 
-    console.log(NURSE_DATA);
+    // console.log(NURSE_DATA);
 
     this.getNurseService.getNurses(this.org)
     .subscribe(data => {
@@ -301,7 +301,7 @@ export class NurseTableComponent implements OnInit {
   }
 
   onRowClick(row: any) {
-    //console.log(row)
+    // console.log(row)
     this.router.navigateByUrl("/profpage", { state: row })
   }
 
@@ -365,11 +365,11 @@ export class NurseTableComponent implements OnInit {
   }
 
   deleteEvent(event: CalendarEvent) {
-    console.log("inDeleteEvent")
-    console.log(event.title);
+    // console.log("inDeleteEvent")
+    // console.log(event.title);
     this.calendarService.deleteEvent(event.id)
       .subscribe(data => {
-        //console.log(data);
+        // console.log(data);
       });
   }
 

@@ -48,8 +48,8 @@ export class AdminHomepageComponent implements OnInit {
         }
 
         this.nurses.unshift(row);
-        console.log(row)
-        console.log(this.nurses)
+        // console.log(row)
+        // console.log(this.nurses)
         this.allNurses.set(row['Full Name'], 0);
       }
       this.nurseLength = this.nurses.length;
@@ -57,12 +57,12 @@ export class AdminHomepageComponent implements OnInit {
 
     this.calendarService.getCalendarEvents(this.org)
     .subscribe(data => {
-      //console.log(data);
+      // console.log(data);
 
       const temp = (JSON.stringify(data))
 
       const data_json = JSON.parse(temp);
-      console.log(data_json.data);
+      // console.log(data_json.data);
 
       for (let i = 0; i < data_json.data.length; i++) {
         const timestamp_start = Date.parse(data_json.data[i].time_start);
@@ -86,7 +86,7 @@ export class AdminHomepageComponent implements OnInit {
 
                 onClick: ({ event }: { event: CalendarEvent }): void => {
                   this.events = this.events.filter((iEvent) => iEvent !== event);
-                  console.log('Event deleted', event);
+                  // console.log('Event deleted', event);
                   this.deleteEvent(event);
                 }
               },
@@ -128,7 +128,7 @@ export class AdminHomepageComponent implements OnInit {
 
                   onClick: ({ event }: { event: CalendarEvent }): void => {
                     this.events = this.events.filter((iEvent) => iEvent !== event);
-                    console.log('Event deleted', event);
+                    // console.log('Event deleted', event);
                     this.deleteEvent(event);
                   }
                 },
@@ -173,7 +173,7 @@ export class AdminHomepageComponent implements OnInit {
                   label: '<i class="fa fa-trash" aria-hidden="true"></i>',
                   onClick: ({ event }: { event: CalendarEvent }): void => {
                     this.events = this.events.filter((iEvent) => iEvent !== event);
-                    console.log('Event deleted', event);
+                    // console.log('Event deleted', event);
                     this.deleteEvent(event);
                   },
                 },
@@ -217,7 +217,7 @@ export class AdminHomepageComponent implements OnInit {
                   label: '<i class="fa fa-trash" aria-hidden="true"></i>',
                   onClick: ({ event }: { event: CalendarEvent }): void => {
                     this.events = this.events.filter((iEvent) => iEvent !== event);
-                    console.log('Event deleted', event);
+                    // console.log('Event deleted', event);
                     this.deleteEvent(event);
                   },
                 },
@@ -243,7 +243,7 @@ export class AdminHomepageComponent implements OnInit {
 
         }
       }
-      console.log(this.events);
+      // console.log(this.events);
       let today = new Date();
 
       for (let i = 0; i < this.events.length; i++) {
@@ -253,13 +253,13 @@ export class AdminHomepageComponent implements OnInit {
           this.numEventsToday++;
         }
       }
-      console.log(this.allNurses);
+      // console.log(this.allNurses);
       this.allNurses.forEach((value, key) => {
         if (value != 0) {
           this.uniqueNursesToday++;
         }
       });
-      console.log(this.todayEvents);
+      // console.log(this.todayEvents);
       if(this.todayEvents != undefined) {
         for (let i = 0; i < this.todayEvents.length; i++) {
           let todayEnd = this.todayEvents[i].end?.getTime() || 0;
@@ -343,11 +343,11 @@ export class AdminHomepageComponent implements OnInit {
   }
 
   deleteEvent(event: CalendarEvent) {
-    console.log("inDeleteEvent")
-    console.log(event.title);
+    // console.log("inDeleteEvent")
+    // console.log(event.title);
     this.calendarService.deleteEvent(event.id)
       .subscribe(data => {
-        //console.log(data);
+        // console.log(data);
       });
   }
 

@@ -40,7 +40,7 @@ export class CalendarService {
   }
 
   deleteEvent(id: any): Observable<any> {
-    console.log('inDeleteeeee')
+    // console.log('inDeleteeeee')
     const headers = { 'content-type': 'application/json'}
 
 

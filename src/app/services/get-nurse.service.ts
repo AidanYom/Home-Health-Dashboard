@@ -35,7 +35,7 @@ export class GetNurseService {
       "skill" : skill,
       "org" : org,
     }
-    console.log(skill)
+    // console.log(skill)
 
     return this.http.post(this.baseURL + 'new-nurse', body,{'headers':headers})
 

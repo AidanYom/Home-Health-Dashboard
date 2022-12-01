@@ -22,7 +22,7 @@ export class SignupPageComponent implements OnInit {
   onClick() {
     this.authService.createUser(this.email, this.password, this.lname, this.role, this.fname).subscribe(
       data => {
-        console.log(data)
+        // console.log(data)
         if (data.status === '200') {
           this.router.navigateByUrl('login')
         }

@@ -49,7 +49,7 @@ export class PatientTableComponent implements OnInit {
 
     //this.dataSource = NURSE_DATA;
     const PATEINT_DATA: Patient[] = []
-    console.log("yo");
+    // console.log("yo");
     this.patientService.getPatients(this.org)
     .subscribe(data => {
       const temp = (JSON.stringify(data));
@@ -82,7 +82,7 @@ export class PatientTableComponent implements OnInit {
 
     })
 
-    console.log(PATEINT_DATA);
+    // console.log(PATEINT_DATA);
 
   }
 

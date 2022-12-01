@@ -19,7 +19,7 @@ export class SidebarNavComponent implements OnInit {
   firstname: any;
   lastname: any;
   constructor(private router: Router, private authService: AuthServiceService, private accService: AccountActivityService) { 
-    console.log("update")
+    // console.log("update")
     this.router.events.subscribe((event: Event) => {
       if(event instanceof NavigationEnd){
         this.checkRoute();
@@ -31,7 +31,7 @@ export class SidebarNavComponent implements OnInit {
     })
 
     accService.role.subscribe(role =>{
-      console.log(role)
+      // console.log(role)
       if(role === 1){
         this.role = "admin"
       } else if(role === 2){

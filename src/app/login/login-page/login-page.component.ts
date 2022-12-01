@@ -21,8 +21,8 @@ export class LoginPageComponent implements OnInit {
   onClick() : void {
       this.login.nativeElement.blur();
       
-      console.log(this.email)
-      console.log(this.password)
+      // console.log(this.email)
+      // console.log(this.password)
 
       this.authService.login(this.email, this.password)
         .subscribe(data => {
@@ -43,7 +43,7 @@ export class LoginPageComponent implements OnInit {
           }
           else {
             //go to new component
-            console.log("hello")
+            // console.log("hello")
             this.authService.setIsLoggedIn(true);
             this.router.navigateByUrl('admin')
             var firstname:string = data.firstname
@@ -56,7 +56,7 @@ export class LoginPageComponent implements OnInit {
                 this.accService.setOrgName(data.data[0].orgName);
               })
           }
-          console.log(data)
+          // console.log(data)
         })
       
   }
