@@ -58,8 +58,13 @@ export class LoginPageComponent implements OnInit {
               .subscribe(data => {
                 this.accService.setOrgName(data.data[0].orgName);
               })
+            this.accService.logLogin(data.userId, data.orgId)
+              .subscribe(data => {
+                this.accService.setLoginId(data.data.loginId)
+              })
+            
           }
-          // console.log(data)
+          console.log(data)
         })
       
   }

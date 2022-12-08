@@ -18,6 +18,8 @@ export class SidebarNavComponent implements OnInit {
   role: any;
   firstname: any;
   lastname: any;
+  timerId: any;
+
   constructor(private router: Router, private authService: AuthServiceService, private accService: AccountActivityService) { 
     // console.log("update")
     this.router.events.subscribe((event: Event) => {
@@ -51,6 +53,8 @@ export class SidebarNavComponent implements OnInit {
     } else{
       this.role = "guest"
     }
+
+    this.timerId = setTimeout(this.logout, 21600000);
   }
 
   checkRoute(): void {
@@ -66,6 +70,13 @@ export class SidebarNavComponent implements OnInit {
 
 
   logout(): void {
+    clearTimeout(this.timerId);
+    this.accService.setLoginEnd()
+      .subscribe(err => {
+        if(err){
+          console.log(err)
+        }
+      })
     this.authService.setIsLoggedIn(false);
     this.accService.setLoginName("");
     this.accService.setLoginRole(-1);

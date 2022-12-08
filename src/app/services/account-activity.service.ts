@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+
+var moment = require('moment-timezone')
+// moment.tz.setDefault("America/New_York");
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +18,10 @@ export class AccountActivityService {
   email!: BehaviorSubject<string>;
   role!: BehaviorSubject<number>
   org!: BehaviorSubject<string>
-  constructor() {
+  baseURL: string = "http://localhost:3001/";
+
+
+  constructor(private http: HttpClient) {
     this.lostEmail = new BehaviorSubject(this.noRequest);
     this.username = new BehaviorSubject("");
     this.role = new BehaviorSubject(0);
@@ -51,5 +61,36 @@ export class AccountActivityService {
   }
   getOrgName(){
     return localStorage.getItem("orgName");
+  }
+  setLoginId(id:number){
+    this.role.next(id);
+    localStorage.setItem("loginId", id.toString())
+  }
+  getLoginId(){
+    return Number(localStorage.getItem("loginId"));
+  }
+  logLogin(userId: number, orgId: number): Observable<any> {
+    const headers = { 'content-type': 'application/json'};
+    const time = (moment().tz("America/New_York").format('YYYY/MM/DD HH:mm:ss'));
+    const body = {
+      "id": userId,
+      "org": orgId,
+      "time": time
+    }
+    return this.http.post(this.baseURL + 'log_login', body, {'headers':headers})
+  }
+  setLoginEnd(): Observable<any> {
+    const headers = { 'content-type': 'application/json'};
+    const time = (moment().tz("America/New_York").format('YYYY/MM/DD HH:mm:ss'));
+    const loginId = this.getLoginId();
+    this.setLoginId(0); //user is logging out, must reset the loginId stored
+    const body = {
+      "loginId": loginId,
+      "end_time": time
+    }
+    console.log("setting login end")
+    console.log(this.baseURL + 'log_login_end')
+    console.log(body)
+    return this.http.post(this.baseURL + 'log_login_end', body, {'headers':headers})
   }
 }
